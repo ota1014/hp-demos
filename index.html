@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeeBloom — HP制作デモ一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:#0A0A0A;color:#fff;min-height:100vh;padding:3rem 5%;}
+header{margin-bottom:3rem;border-bottom:1px solid #222;padding-bottom:2rem;}
+.brand{font-size:.72rem;color:#E82B2B;letter-spacing:.4em;font-weight:700;margin-bottom:.5rem;}
+h1{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.15em;margin-bottom:.4rem;}
+.sub{font-size:.82rem;color:rgba(255,255,255,.4);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.card{background:#161616;border:1px solid #2A2A2A;border-radius:8px;overflow:hidden;transition:transform .2s,border-color .2s;text-decoration:none;color:inherit;display:block;}
+.card:hover{transform:translateY(-4px);border-color:#444;}
+.card-body{padding:1.5rem;}
+.card-tag{font-size:.65rem;color:#E82B2B;font-weight:700;letter-spacing:.25em;margin-bottom:.4rem;}
+.card-name{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;}
+.card-type{font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:1rem;}
+.card-link{display:inline-block;background:#E82B2B;color:#fff;padding:.5rem 1.2rem;font-size:.78rem;font-weight:700;text-decoration:none;border-radius:4px;}
+.empty{color:rgba(255,255,255,.3);font-size:.82rem;padding:2rem;text-align:center;border:1px dashed #2A2A2A;border-radius:8px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">BEEBLOOM — HP DEMOS</div>
+  <h1>制作デモ一覧</h1>
+  <p class="sub">各店舗のデザイン提案ページです。</p>
+</header>
+
+<div class="grid">
+  <a href="chuoutei/" class="card">
+    <div class="card-body">
+      <div class="card-tag">飲食店 — 餃子</div>
+      <div class="card-name">中央亭</div>
+      <div class="card-type">静岡県沼津市 — 5パターン提案</div>
+      <span class="card-link">デモを見る →</span>
+    </div>
+  </a>
+</div>
+
+</body>
+</html>
