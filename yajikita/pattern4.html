@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>和風食堂 弥次喜多 平町店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF5722;
+  --orange2:#FF7043;
+  --dark:#1E1E1E;
+  --gray:#F7F7F7;
+  --gray2:#EEEEEE;
+  --text:#333;
+  --textlight:#888;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:var(--text);font-family:'Noto Sans JP',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #eee;padding:0 5%;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-weight:900;font-size:1rem;letter-spacing:.05em;color:var(--dark);}
+.nav-logo span{color:var(--orange);}
+.nav-logo small{display:block;font-size:.55rem;font-weight:400;color:var(--textlight);letter-spacing:.15em;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{color:var(--text);text-decoration:none;font-size:.8rem;font-weight:700;letter-spacing:.08em;transition:color .2s;}
+.nav-links a:hover{color:var(--orange);}
+.nav-cta{background:var(--orange);color:#fff;padding:.55rem 1.5rem;border-radius:40px;font-size:.78rem;font-weight:700;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--orange2);}
+
+/* HERO */
+.hero{padding-top:64px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;}
+.hero-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:5rem 5% 5rem 7%;}
+.hero-tag{display:inline-block;background:var(--orange);color:#fff;padding:.3rem .8rem;border-radius:2px;font-size:.65rem;font-weight:700;letter-spacing:.2em;margin-bottom:2rem;}
+.hero-num{font-family:'Montserrat',sans-serif;font-size:clamp(5rem,10vw,9rem);font-weight:900;line-height:1;color:rgba(255,255,255,.06);letter-spacing:-.02em;margin-bottom:-1.5rem;}
+.hero-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.2;color:#fff;letter-spacing:.03em;margin-bottom:1.5rem;}
+.hero-title em{color:var(--orange);font-style:normal;}
+.hero-sub{font-size:.84rem;line-height:2.1;color:rgba(255,255,255,.6);max-width:380px;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-orange{background:var(--orange);color:#fff;padding:.85rem 2rem;font-size:.85rem;font-weight:700;text-decoration:none;border-radius:4px;transition:background .2s;}
+.btn-orange:hover{background:var(--orange2);}
+.btn-wh{border:1px solid rgba(255,255,255,.3);color:#fff;padding:.85rem 2rem;font-size:.85rem;text-decoration:none;border-radius:4px;transition:all .2s;}
+.btn-wh:hover{background:rgba(255,255,255,.08);}
+.hero-right{position:relative;overflow:hidden;}
+.hero-right img{width:100%;height:100%;object-fit:cover;}
+.hero-right::before{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,87,34,.15),transparent);z-index:1;}
+.hero-chips{position:absolute;top:2rem;right:2rem;z-index:2;display:flex;flex-direction:column;gap:.8rem;}
+.chip{background:rgba(255,255,255,.92);padding:.6rem 1rem;border-radius:40px;font-size:.72rem;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:.4rem;backdrop-filter:blur(4px);}
+.chip-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);}
+
+/* TICKER */
+.ticker{background:var(--orange);overflow:hidden;white-space:nowrap;padding:.55rem 0;}
+.ticker-inner{display:inline-flex;animation:tick 20s linear infinite;}
+.ticker-item{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;color:#fff;letter-spacing:.2em;padding:0 2.5rem;}
+.ticker-item::before{content:'★';margin-right:1.5rem;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{padding:8rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;max-width:1100px;margin:0 auto;}
+.about-label{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.45em;color:var(--orange);margin-bottom:1rem;}
+.about-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.25;margin-bottom:1.5rem;letter-spacing:.03em;}
+.about-text{font-size:.84rem;line-height:2.1;color:var(--textlight);margin-bottom:1.5rem;}
+.about-stats{display:flex;gap:2.5rem;margin:2rem 0;}
+.stat{border-left:3px solid var(--orange);padding-left:1rem;}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;color:var(--dark);}
+.stat-label{font-size:.68rem;color:var(--textlight);margin-top:.2rem;}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.about-imgs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;}
+.about-imgs img:first-child{aspect-ratio:1/1.2;grid-row:1/3;}
+
+/* MENU */
+.menu{padding:8rem 5%;background:var(--gray);}
+.menu-inner{max-width:1100px;margin:0 auto;}
+.sec-title{margin-bottom:4rem;text-align:center;}
+.sec-title-en{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.45em;color:var(--orange);margin-bottom:.6rem;}
+.sec-title-ja{font-size:2rem;font-weight:900;color:var(--dark);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.mc{background:#fff;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.mc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.1);}
+.mc-img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.mc-body{padding:1.4rem;}
+.mc-badge{display:inline-block;background:var(--orange);color:#fff;padding:.2rem .6rem;border-radius:2px;font-size:.6rem;font-weight:700;letter-spacing:.1em;margin-bottom:.7rem;}
+.mc-name{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;}
+.mc-desc{font-size:.75rem;line-height:1.8;color:var(--textlight);margin-bottom:1rem;}
+.mc-price{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--orange);}
+.mc-price small{font-family:'Noto Sans JP',sans-serif;font-size:.62rem;font-weight:400;color:var(--textlight);margin-left:.2rem;}
+
+/* HOURS */
+.hours{padding:5rem 5%;border-top:1px solid var(--gray2);border-bottom:1px solid var(--gray2);}
+.hours-inner{max-width:900px;margin:0 auto;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.hour-block{flex:1;min-width:200px;background:var(--gray);border-radius:8px;padding:1.8rem;text-align:center;}
+.hour-block.closed{background:var(--dark);color:#fff;}
+.hour-block-label{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.3em;color:var(--orange);margin-bottom:.8rem;}
+.hour-block.closed .hour-block-label{color:rgba(255,255,255,.4);}
+.hour-block-time{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:700;color:var(--dark);}
+.hour-block.closed .hour-block-time{color:#fff;font-size:1.2rem;}
+.hour-block-sub{font-size:.7rem;color:var(--textlight);margin-top:.5rem;}
+.hour-block.closed .hour-block-sub{color:rgba(255,255,255,.4);}
+
+/* RESERVE */
+.reserve{padding:8rem 5%;text-align:center;background:var(--orange);}
+.reserve-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:#fff;margin-bottom:.8rem;}
+.reserve-sub{font-size:.84rem;line-height:2;color:rgba(255,255,255,.8);max-width:440px;margin:0 auto 2.5rem;}
+.reserve-btns{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;}
+.r-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2.4rem;font-size:.88rem;font-weight:700;text-decoration:none;border-radius:4px;letter-spacing:.08em;transition:all .2s;}
+.r-btn--call{background:#fff;color:var(--orange);}
+.r-btn--call:hover{background:rgba(255,255,255,.9);}
+.r-btn--line{background:#06C755;color:#fff;border:2px solid rgba(255,255,255,.3);}
+.r-btn--line:hover{background:#05b04b;}
+
+/* INFO */
+.info{padding:8rem 5%;}
+.info-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.info-title{font-size:1.2rem;font-weight:900;letter-spacing:.08em;margin-bottom:2rem;}
+.info-table{width:100%;border-collapse:collapse;}
+.info-table tr{border-bottom:1px solid var(--gray2);}
+.info-table th{width:5rem;font-size:.72rem;font-weight:700;color:var(--orange);text-align:left;padding:.9rem 0;vertical-align:top;}
+.info-table td{font-size:.82rem;color:var(--text);padding:.9rem 0;line-height:1.8;}
+.map-wrap{aspect-ratio:4/3;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);}
+.map-wrap iframe{width:100%;height:100%;border:none;}
+
+/* FOOTER */
+footer{background:var(--dark);padding:3rem 5%;text-align:center;}
+.footer-logo{font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:.05em;}
+.footer-logo span{color:var(--orange);}
+.footer-address{font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:1.5rem;line-height:1.8;}
+.footer-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:none;}
+.delay-1{transition-delay:.12s;}.delay-2{transition-delay:.24s;}.delay-3{transition-delay:.36s;}.delay-4{transition-delay:.48s;}
+
+.plan-badge{position:fixed;bottom:2rem;right:2rem;background:var(--orange);padding:.5rem 1rem;font-size:.65rem;color:#fff;letter-spacing:.12em;border-radius:4px;z-index:200;}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{min-height:60vw;}
+  .about{grid-template-columns:1fr;}
+  .info-inner{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="plan-badge">PATTERN 4 — 爽快モダン</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      弥次喜多 <span>食堂</span>
+      <small>YAJIKITA SHOKUDO / NUMAZU</small>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">こだわり</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#info">アクセス</a></li>
+    </ul>
+    <a href="#reserve" class="nav-cta">ご予約</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">📺 静岡朝日テレビ「とびっきり食堂」掲載</div>
+    <div class="hero-num">8</div>
+    <h1 class="hero-title">地魚と<em>ラード</em>で、<br>沼津の旨さを。</h1>
+    <p class="hero-sub">沼津港直送の新鮮な地魚と、オランダ産ラードで揚げるサクふわのアジフライ。創業8年、平町に愛される和風食堂です。</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-orange">メニューを見る</a>
+      <a href="#reserve" class="btn-wh">ご予約</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=1200&q=80" alt="海鮮">
+    <div class="hero-chips">
+      <div class="chip"><span class="chip-dot"></span>沼津港直送</div>
+      <div class="chip"><span class="chip-dot"></span>創業8年</div>
+      <div class="chip"><span class="chip-dot"></span>PayPay対応</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">魚河岸定食 ¥1,380</span>
+    <span class="ticker-item">海老コロ定食 ¥1,500</span>
+    <span class="ticker-item">アジ丼 ¥1,000〜</span>
+    <span class="ticker-item">サーモン丼 ¥999〜</span>
+    <span class="ticker-item">ランチ 11:30〜14:00</span>
+    <span class="ticker-item">ディナー 17:00〜20:30</span>
+    <span class="ticker-item">木曜定休</span>
+    <span class="ticker-item">魚河岸定食 ¥1,380</span>
+    <span class="ticker-item">海老コロ定食 ¥1,500</span>
+    <span class="ticker-item">アジ丼 ¥1,000〜</span>
+    <span class="ticker-item">サーモン丼 ¥999〜</span>
+    <span class="ticker-item">ランチ 11:30〜14:00</span>
+    <span class="ticker-item">ディナー 17:00〜20:30</span>
+    <span class="ticker-item">木曜定休</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-imgs reveal">
+    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="和食">
+    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&q=80" alt="刺身">
+    <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=400&q=80" alt="フライ">
+  </div>
+  <div>
+    <div class="about-label reveal">ABOUT</div>
+    <h2 class="about-title reveal delay-1">うまいもんを、<br>まっすぐ出す。</h2>
+    <p class="about-text reveal delay-2">沼津港から毎日仕入れる地魚と、オランダ産ラードで揚げるサクふわのアジフライ——弥次喜多の料理はシンプルです。でも、そのシンプルさを守り続けることが、8年間の信頼に繋がっています。</p>
+    <p class="about-text reveal delay-2">「量と味のバランスが良い」と地元の常連さんに愛され、静岡朝日テレビ「とびっきり食堂」でも紹介された、沼津の隠れた名食堂です。</p>
+    <div class="about-stats reveal delay-3">
+      <div class="stat"><div class="stat-num">8年</div><div class="stat-label">創業年数</div></div>
+      <div class="stat"><div class="stat-num">4.1</div><div class="stat-label">口コミ評価</div></div>
+      <div class="stat"><div class="stat-num">10台+</div><div class="stat-label">ランチ駐車場</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="menu-inner">
+    <div class="sec-title">
+      <div class="sec-title-en reveal">MENU</div>
+      <div class="sec-title-ja reveal delay-1">おすすめメニュー</div>
+    </div>
+    <div class="menu-grid">
+      <div class="mc reveal">
+        <img class="mc-img" src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=600&q=80" alt="魚河岸定食">
+        <div class="mc-body">
+          <div class="mc-badge">看板</div>
+          <div class="mc-name">魚河岸定食</div>
+          <div class="mc-desc">刺身・アジフライ・ご飯・味噌汁。沼津直送の地魚を使った看板メニュー。</div>
+          <div class="mc-price">¥1,380 <small>税込</small></div>
+        </div>
+      </div>
+      <div class="mc reveal delay-1">
+        <img class="mc-img" src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=600&q=80" alt="海老コロ定食">
+        <div class="mc-body">
+          <div class="mc-badge">人気</div>
+          <div class="mc-name">海老コロ定食</div>
+          <div class="mc-desc">プリプリのエビをオランダ産ラードでサクふわに揚げたボリューム定食。</div>
+          <div class="mc-price">¥1,500 <small>税込</small></div>
+        </div>
+      </div>
+      <div class="mc reveal delay-2">
+        <img class="mc-img" src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="アジ丼">
+        <div class="mc-body">
+          <div class="mc-badge">丼</div>
+          <div class="mc-name">アジ丼</div>
+          <div class="mc-desc">沼津港のアジをたっぷりのせた地魚丼。新鮮さをシンプルに楽しめます。</div>
+          <div class="mc-price">¥1,000 <small>税込〜</small></div>
+        </div>
+      </div>
+      <div class="mc reveal delay-3">
+        <img class="mc-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="ランチ">
+        <div class="mc-body">
+          <div class="mc-badge">ランチ</div>
+          <div class="mc-name">大ランチ</div>
+          <div class="mc-desc">魚も肉も楽しめるおすすめのランチ。大・中・小の3サイズで対応。</div>
+          <div class="mc-price">¥1,200 <small>税込〜</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<div class="hours">
+  <div class="hours-inner reveal">
+    <div class="hour-block">
+      <div class="hour-block-label">LUNCH</div>
+      <div class="hour-block-time">11:30 – 14:00</div>
+      <div class="hour-block-sub">月・火・水・金・土・日</div>
+    </div>
+    <div class="hour-block">
+      <div class="hour-block-label">DINNER</div>
+      <div class="hour-block-time">17:00 – 20:30</div>
+      <div class="hour-block-sub">月・火・水・金・土・日</div>
+    </div>
+    <div class="hour-block closed">
+      <div class="hour-block-label">CLOSED</div>
+      <div class="hour-block-time">木曜日</div>
+      <div class="hour-block-sub">祝日の場合は営業</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESERVE -->
+<section class="reserve" id="reserve">
+  <h2 class="reserve-title reveal">ご予約・お問い合わせ</h2>
+  <p class="reserve-sub reveal delay-1">お電話にてご予約を承っております。<br>団体様のご来店もお気軽にどうぞ。</p>
+  <div class="reserve-btns reveal delay-2">
+    <a href="tel:0559625773" class="r-btn r-btn--call">📞 055-962-5773</a>
+    <a href="#" class="r-btn r-btn--line">LINE でお問い合わせ</a>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="info" id="info">
+  <div class="info-inner">
+    <div>
+      <div class="info-title reveal">店舗情報 / ACCESS</div>
+      <table class="info-table reveal delay-1">
+        <tr><th>店名</th><td>和風食堂 弥次喜多 平町店</td></tr>
+        <tr><th>住所</th><td>静岡県沼津市平町18-11</td></tr>
+        <tr><th>電話</th><td><a href="tel:0559625773" style="color:var(--orange);">055-962-5773</a></td></tr>
+        <tr><th>ランチ</th><td>11:30〜14:00</td></tr>
+        <tr><th>ディナー</th><td>17:00〜20:30</td></tr>
+        <tr><th>定休日</th><td>木曜日（祝日の場合は営業）</td></tr>
+        <tr><th>アクセス</th><td>沼津駅南口より徒歩約13分</td></tr>
+        <tr><th>駐車場</th><td>昼：10台以上 / 夜：4台</td></tr>
+        <tr><th>支払い</th><td>現金・PayPay</td></tr>
+      </table>
+    </div>
+    <div class="map-wrap reveal delay-2">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.6!2d138.8685882!3d35.0996604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60198ff7a260e85f%3A0xdbc29ead6cd79777!2z5ZKM6aOW6aOf5a2m5bqr44CA5byK5qiA5bCE5Zan5Yy6!5e0!3m2!1sja!2sjp!4v1715000000000" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">弥次喜多<span>食堂</span></div>
+  <div class="footer-address">
+    静岡県沼津市平町18-11 ｜ TEL 055-962-5773<br>
+    11:30〜14:00 / 17:00〜20:30 ｜ 木曜定休
+  </div>
+  <div class="footer-copy">© 和風食堂 弥次喜多 平町店</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
