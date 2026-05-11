@@ -196,6 +196,17 @@ footer p { font-family: 'Noto Sans JP', sans-serif; font-size: 0.72rem; color: r
   .access-grid { grid-template-columns: 1fr; }
   section { padding: 5rem 5%; }
 }
+/* ── RESERVE ── */
+.reserve{background:#12090350;border-top:1px solid rgba(196,146,58,.25);padding:5rem 5%;text-align:center;}
+.reserve .s-label,.reserve .s-title,.reserve .s-divider{margin-left:auto;margin-right:auto;}
+.reserve-lead{font-family:'Noto Serif JP',serif;font-size:.95rem;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 2.5rem;line-height:2;}
+.reserve-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.2rem;}
+.r-btn{display:inline-block;padding:.9rem 2.4rem;font-size:.95rem;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:opacity .2s;}
+.r-btn:hover{opacity:.8;}
+.r-btn--call{background:var(--red);color:var(--cream);}
+.r-btn--sns{border:1px solid rgba(196,146,58,.4);color:var(--gold);}
+.reserve-note{font-size:.75rem;color:rgba(255,255,255,.28);letter-spacing:.05em;}
+@media(max-width:600px){.r-btn{width:100%;text-align:center;}}
 </style>
 </head>
 <body>
@@ -385,6 +396,21 @@ footer p { font-family: 'Noto Sans JP', sans-serif; font-size: 0.72rem; color: r
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reserve" id="reserve">
+  <div class="container">
+    <span class="s-label reveal">RESERVATION</span>
+    <h2 class="s-title reveal delay-1">ご来店・テイクアウト予約</h2>
+    <div class="s-divider reveal delay-2"></div>
+    <p class="reserve-lead reveal delay-3">ご来店はいつでも歓迎いたします。<br>テイクアウトのご予約・お問い合わせはお電話にて承ります。</p>
+    <div class="reserve-btns reveal delay-4">
+      <a href="tel:0559624420" class="r-btn r-btn--call">📞 &nbsp;055-962-4420</a>
+      <a href="https://www.instagram.com/chuuoutei/" target="_blank" rel="noopener" class="r-btn r-btn--sns">Instagram で最新情報</a>
+    </div>
+    <p class="reserve-note reveal delay-5">営業時間 11:00〜売り切れ次第閉店 ／ 定休日 月曜日</p>
   </div>
 </section>
 

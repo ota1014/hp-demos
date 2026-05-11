@@ -132,6 +132,19 @@ footer p{font-size:0.72rem;color:#444;}
   .nav-links.open{display:flex;}
   section{padding:4.5rem 5%;}
 }
+/* ── RESERVE ── */
+.reserve{background:var(--red);padding:5rem 5%;text-align:center;color:#fff;}
+.reserve .en-label{color:rgba(255,255,255,.55);}
+.reserve h2{font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;margin:.4rem 0 .8rem;}
+.reserve-bar{width:40px;height:2px;background:rgba(255,255,255,.4);margin:0 auto 2rem;}
+.reserve-lead{font-size:.92rem;color:rgba(255,255,255,.8);max-width:480px;margin:0 auto 2.5rem;line-height:2;}
+.reserve-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.2rem;}
+.r-btn{display:inline-block;padding:.9rem 2.4rem;font-size:.95rem;font-weight:700;text-decoration:none;transition:opacity .2s;}
+.r-btn:hover{opacity:.85;}
+.r-btn--call{background:#fff;color:var(--red);}
+.r-btn--sns{border:2px solid rgba(255,255,255,.6);color:#fff;}
+.reserve-note{font-size:.75rem;color:rgba(255,255,255,.5);}
+@media(max-width:600px){.r-btn{width:100%;text-align:center;}}
 </style>
 </head>
 <body>
@@ -272,6 +285,19 @@ footer p{font-size:0.72rem;color:#444;}
       </div>
     </div>
   </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reserve" id="reserve">
+  <div class="en-label reveal">RESERVATION</div>
+  <h2 class="reveal delay-1">ご来店・テイクアウト予約</h2>
+  <div class="reserve-bar reveal delay-2"></div>
+  <p class="reserve-lead reveal delay-3">ご来店はいつでも歓迎いたします。<br>テイクアウトのご予約・お問い合わせはお電話にて承ります。</p>
+  <div class="reserve-btns reveal delay-4">
+    <a href="tel:0559624420" class="r-btn r-btn--call">📞 &nbsp;055-962-4420</a>
+    <a href="https://www.instagram.com/chuuoutei/" target="_blank" rel="noopener" class="r-btn r-btn--sns">Instagram で最新情報</a>
+  </div>
+  <p class="reserve-note reveal delay-5">営業時間 11:00〜売り切れ次第閉店 ／ 定休日 月曜日</p>
 </section>
 
 <footer>
