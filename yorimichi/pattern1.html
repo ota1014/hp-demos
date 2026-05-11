@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポーカールーム YORIMICHI | 沼津初のポーカールーム</title>
+<meta name="description" content="沼津初のアミューズメントポーカールーム。初心者歓迎。年齢・職業を超えてつながれるコミュニティの場。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--gold-light:#E8C87A;--dark:#0A0A0A;--mid:#1A1A1A;--cream:#FAF6EF;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(10,10,10,.97);border-color:rgba(201,168,76,.2);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:.15em;color:var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.1em;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#000;padding:.5rem 1.2rem;font-size:.78rem;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem;}
+.hamburger span{display:block;width:22px;height:1px;background:rgba(255,255,255,.7);}
+.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--dark);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;text-decoration:none;letter-spacing:.1em;}
+@media(max-width:640px){.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}}
+
+/* HERO */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:center;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.keizai.biz/izu_keizai/photonews/1758532896_b.jpg') center/cover no-repeat;transform:scale(1.08);transition:transform 8s ease;opacity:.35;}
+.hero-bg.loaded{transform:scale(1);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,.95) 40%,rgba(10,10,10,.4));}
+.hero-body{position:relative;z-index:1;padding:2rem 5%;max-width:700px;}
+.hero-tag{font-size:.68rem;letter-spacing:.5em;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;}
+.hero-tag::after{content:'';flex:1;height:1px;background:var(--gold);opacity:.4;max-width:80px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,6.5rem);line-height:1;letter-spacing:.06em;color:#fff;margin-bottom:.5rem;}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-sub{font-family:'Noto Serif JP',serif;font-size:clamp(.9rem,2vw,1.1rem);color:rgba(255,255,255,.55);letter-spacing:.1em;margin-bottom:2rem;}
+.hero-copy{font-size:.9rem;color:rgba(255,255,255,.5);line-height:2;max-width:440px;margin-bottom:3rem;border-left:2px solid var(--gold);padding-left:1.2rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{display:inline-block;background:var(--gold);color:#000;padding:.9rem 2.2rem;font-size:.88rem;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:opacity .2s;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-block;border:1px solid rgba(201,168,76,.4);color:var(--gold);padding:.9rem 2.2rem;font-size:.88rem;text-decoration:none;letter-spacing:.05em;transition:border-color .2s;}
+.btn-secondary:hover{border-color:var(--gold);}
+.hero-scroll{position:absolute;bottom:2.5rem;left:5%;display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.25);font-size:.7rem;letter-spacing:.2em;}
+.hero-scroll::after{content:'';width:40px;height:1px;background:currentColor;}
+
+/* PHOTOS */
+.photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;height:280px;gap:2px;}
+.photo-strip .photo{overflow:hidden;}
+.photo-strip .photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+.photo-strip .photo:hover img{transform:scale(1.05);}
+
+/* ABOUT */
+.about{padding:6rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;margin:0 auto;align-items:center;}
+.about-label{font-size:.65rem;letter-spacing:.4em;color:var(--gold);font-weight:700;margin-bottom:1rem;}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.3;margin-bottom:1.5rem;}
+.about-text{font-size:.88rem;color:rgba(255,255,255,.55);line-height:2.2;margin-bottom:1.5rem;}
+.about-quote{border-left:2px solid var(--gold);padding-left:1.2rem;font-family:'Noto Serif JP',serif;font-size:.92rem;color:rgba(255,255,255,.7);line-height:2;font-style:italic;}
+.about-img{position:relative;}
+.about-img img{width:100%;height:380px;object-fit:cover;}
+.about-img-label{position:absolute;bottom:1.5rem;right:1.5rem;background:var(--gold);color:#000;padding:.4rem .9rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;}
+@media(max-width:768px){.about{grid-template-columns:1fr;gap:2.5rem;}.about-img img{height:240px;}}
+
+/* PLANS */
+.plans{background:var(--mid);padding:6rem 5%;}
+.plans-inner{max-width:1000px;margin:0 auto;}
+.sec-label{font-size:.65rem;letter-spacing:.4em;color:var(--gold);font-weight:700;margin-bottom:.8rem;text-align:center;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);text-align:center;margin-bottom:.8rem;}
+.sec-bar{width:36px;height:1px;background:var(--gold);margin:0 auto 3rem;opacity:.6;}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;}
+.plan-card{background:var(--dark);border:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem;}
+.plan-card.featured{border-color:var(--gold);position:relative;}
+.plan-card.featured::before{content:'おすすめ';position:absolute;top:-1px;left:2rem;background:var(--gold);color:#000;font-size:.65rem;font-weight:700;padding:.3rem .8rem;letter-spacing:.1em;}
+.plan-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);margin-bottom:.4rem;}
+.plan-sub{font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:1.5rem;letter-spacing:.05em;}
+.plan-price{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:#fff;line-height:1;margin-bottom:.3rem;}
+.plan-price span{font-size:1.2rem;margin-right:.2rem;}
+.plan-price-note{font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:1.5rem;}
+.plan-items{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.plan-items li{font-size:.83rem;color:rgba(255,255,255,.6);display:flex;gap:.6rem;align-items:flex-start;}
+.plan-items li::before{content:'✦';color:var(--gold);font-size:.6rem;margin-top:.2rem;flex-shrink:0;}
+.plan-note{font-size:.75rem;color:rgba(255,255,255,.3);text-align:center;line-height:1.9;}
+@media(max-width:640px){.plans-grid{grid-template-columns:1fr;}}
+
+/* RESERVE */
+.reserve{padding:6rem 5%;text-align:center;background:var(--dark);position:relative;overflow:hidden;}
+.reserve::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);}
+.reserve-inner{position:relative;z-index:1;max-width:600px;margin:0 auto;}
+.reserve-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:.5rem;}
+.reserve-sub{font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:1rem;letter-spacing:.05em;}
+.reserve-bar{width:36px;height:1px;background:var(--gold);margin:0 auto 2rem;opacity:.6;}
+.reserve-lead{font-size:.9rem;color:rgba(255,255,255,.5);line-height:2;margin-bottom:3rem;}
+.line-btn{display:inline-flex;align-items:center;gap:.8rem;background:#06C755;color:#fff;padding:1.1rem 3rem;font-size:1rem;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:opacity .2s;border-radius:4px;}
+.line-btn:hover{opacity:.88;}
+.line-btn svg{width:24px;height:24px;fill:#fff;}
+.reserve-alt{margin-top:1.5rem;font-size:.78rem;color:rgba(255,255,255,.3);}
+.reserve-alt a{color:var(--gold);text-decoration:none;}
+.reserve-hours{margin-top:2.5rem;display:inline-flex;gap:3rem;border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;}
+.reserve-hours-item{text-align:center;}
+.reserve-hours-label{font-size:.65rem;letter-spacing:.2em;color:rgba(255,255,255,.3);margin-bottom:.3rem;}
+.reserve-hours-val{font-size:.9rem;color:rgba(255,255,255,.7);}
+@media(max-width:500px){.reserve-hours{flex-direction:column;gap:1.5rem;}}
+
+/* ACCESS */
+.access{padding:6rem 5%;background:var(--mid);}
+.access-inner{max-width:1000px;margin:0 auto;}
+.access-head{text-align:center;margin-bottom:3rem;}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
+.access iframe{width:100%;height:320px;border:0;filter:grayscale(1) invert(1) brightness(.8);}
+.info-list{display:flex;flex-direction:column;gap:1.2rem;}
+.info-item{display:flex;gap:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.06);}
+.info-item:last-child{border-bottom:none;}
+.info-label{font-size:.65rem;letter-spacing:.2em;color:var(--gold);font-weight:700;min-width:65px;padding-top:.2rem;}
+.info-val{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.8;}
+.info-val a{color:var(--gold);text-decoration:none;}
+@media(max-width:768px){.access-grid{grid-template-columns:1fr;}}
+
+/* FOOTER */
+footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid rgba(201,168,76,.1);}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);letter-spacing:.15em;margin-bottom:.5rem;}
+.footer-sub{font-size:.72rem;color:rgba(255,255,255,.2);letter-spacing:.1em;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s;}
+.reveal.visible{opacity:1;transform:none;}
+.delay-1{transition-delay:.1s;}.delay-2{transition-delay:.2s;}.delay-3{transition-delay:.3s;}.delay-4{transition-delay:.4s;}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="nav-logo">YORIMICHI</a>
+  <ul class="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#plans">PLANS</a></li>
+    <li><a href="#access">ACCESS</a></li>
+  </ul>
+  <a href="#reserve" class="nav-cta">ご予約はこちら</a>
+  <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="mobileNav" class="nav-mobile">
+  <button onclick="document.getElementById('mobileNav').classList.remove('open')" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">✕</button>
+  <a href="#about" onclick="document.getElementById('mobileNav').classList.remove('open')">ABOUT</a>
+  <a href="#plans" onclick="document.getElementById('mobileNav').classList.remove('open')">PLANS</a>
+  <a href="#reserve" onclick="document.getElementById('mobileNav').classList.remove('open')">RESERVE</a>
+  <a href="#access" onclick="document.getElementById('mobileNav').classList.remove('open')">ACCESS</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <div class="hero-tag">NUMAZU POKER ROOM</div>
+    <h1 class="hero-title">YORI<em>MICHI</em></h1>
+    <p class="hero-sub">沼津初のアミューズメントポーカールーム</p>
+    <p class="hero-copy">年齢や職業を超えて、<br>誰もがつながれるコミュニティの場。<br>初心者の方も大歓迎です。</p>
+    <div class="hero-btns">
+      <a href="#reserve" class="btn-primary">LINE で予約する</a>
+      <a href="#plans" class="btn-secondary">プランを見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo"><img src="https://images.keizai.biz/izu_keizai/photonews/1758532831.jpg" alt="店内1" loading="lazy"></div>
+  <div class="photo"><img src="https://images.keizai.biz/izu_keizai/photonews/1758532822.jpg" alt="店内2" loading="lazy"></div>
+  <div class="photo"><img src="https://images.keizai.biz/izu_keizai/photonews/1758532815.jpg" alt="テーブル" loading="lazy"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="about-label reveal">ABOUT YORIMICHI</div>
+    <h2 class="about-title reveal delay-1">寄り道が、<br>人生を豊かにする。</h2>
+    <p class="about-text reveal delay-2">沼津初のアミューズメントポーカールーム「YORIMICHI」。ポーカーという新しい選択肢を通じて、年齢や職業を超えた交流の場を提供します。</p>
+    <p class="about-text reveal delay-3">ルールを知らない初心者の方でも安心。経験豊富なスタッフが丁寧にサポートします。</p>
+    <blockquote class="about-quote reveal delay-4">「沼津に移住して、若者が気軽に集える遊び場が少ないと感じた。ポーカーという選択肢を通じて、誰もがつながれるコミュニティを作りたい。」<br><small style="font-size:.75rem;opacity:.5;margin-top:.5rem;display:block;">— 代表 太田清人</small></blockquote>
+  </div>
+  <div class="about-img reveal delay-2">
+    <img src="https://images.keizai.biz/izu_keizai/photonews/1758532794.jpg" alt="YORIMICHI店内">
+    <div class="about-img-label">4 TABLES · 13 DEALERS</div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="plans">
+  <div class="plans-inner">
+    <div class="sec-label reveal">PLANS & PRICING</div>
+    <h2 class="sec-title reveal delay-1">ご利用プラン</h2>
+    <div class="sec-bar reveal delay-2"></div>
+    <div class="plans-grid">
+      <div class="plan-card featured reveal delay-1">
+        <div class="plan-name">デビュープラン</div>
+        <div class="plan-sub">DEBUT PLAN — 初心者限定</div>
+        <div class="plan-price"><span>¥</span>3,000</div>
+        <div class="plan-price-note">チップ 7,500円分 付き</div>
+        <ul class="plan-items">
+          <li>ポーカーのルール説明付き</li>
+          <li>スタッフが丁寧にサポート</li>
+          <li>初心者限定の安心プラン</li>
+          <li>施設利用料込み</li>
+        </ul>
+      </div>
+      <div class="plan-card reveal delay-2">
+        <div class="plan-name">スタンダード</div>
+        <div class="plan-sub">STANDARD — 通常ご利用</div>
+        <div class="plan-price"><span>¥</span>1,000</div>
+        <div class="plan-price-note">施設利用料（チップ別途）</div>
+        <ul class="plan-items">
+          <li>トーナメント / リングゲーム</li>
+          <li>チップ ¥1,000〜</li>
+          <li>経験者・リピーター向け</li>
+          <li>当日ご来店 or LINE予約</li>
+        </ul>
+      </div>
+    </div>
+    <p class="plan-note reveal">※ 18歳以上限定。※ アミューズメントポーカーのため、金銭的な賭けは一切ありません。</p>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reserve" id="reserve">
+  <div class="reserve-inner">
+    <div class="sec-label reveal">RESERVATION</div>
+    <h2 class="reserve-title reveal delay-1">ご予約・お問い合わせ</h2>
+    <div class="reserve-bar reveal delay-2"></div>
+    <p class="reserve-lead reveal delay-3">LINEからかんたんにご予約いただけます。<br>初めての方もお気軽にどうぞ。スタッフが丁寧にご案内します。</p>
+    <a href="https://line.me/R/ti/p/@495gnfee" target="_blank" rel="noopener" class="line-btn reveal delay-4">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.04 2 11.05c0 3.51 2.2 6.58 5.51 8.3L6.5 22l3.04-1.61C10.3 20.79 11.15 21 12 21c5.52 0 10-4.04 10-9.05C22 6.04 17.52 2 12 2z"/></svg>
+      LINE で予約する
+    </a>
+    <p class="reserve-alt reveal delay-4">またはInstagramDMへ <a href="https://www.instagram.com/yorimichi_poker/" target="_blank">@yorimichi_poker</a></p>
+    <div class="reserve-hours reveal delay-4">
+      <div class="reserve-hours-item"><div class="reserve-hours-label">OPEN</div><div class="reserve-hours-val">17:00</div></div>
+      <div class="reserve-hours-item"><div class="reserve-hours-label">CLOSE</div><div class="reserve-hours-val">23:00</div></div>
+      <div class="reserve-hours-item"><div class="reserve-hours-label">定休日</div><div class="reserve-hours-val">不定休</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="access-inner">
+    <div class="access-head">
+      <div class="sec-label reveal">ACCESS</div>
+      <h2 class="sec-title reveal delay-1">店舗情報</h2>
+      <div class="sec-bar reveal delay-2"></div>
+    </div>
+    <div class="access-grid">
+      <div class="reveal"><iframe src="https://maps.google.com/maps?q=静岡県沼津市添地町72&z=17&output=embed" allowfullscreen loading="lazy" title="YORIMICHI 地図"></iframe></div>
+      <div class="info-list reveal delay-1">
+        <div class="info-item"><div class="info-label">PLACE</div><div class="info-val">静岡県沼津市添地町72<br>青秀ビル 5階</div></div>
+        <div class="info-item"><div class="info-label">ACCESS</div><div class="info-val">JR沼津駅南口より徒歩約5分</div></div>
+        <div class="info-item"><div class="info-label">HOURS</div><div class="info-val">17:00 〜 23:00</div></div>
+        <div class="info-item"><div class="info-label">CLOSED</div><div class="info-val">不定休（SNSで告知）</div></div>
+        <div class="info-item"><div class="info-label">SNS</div><div class="info-val">
+          <a href="https://www.instagram.com/yorimichi_poker/" target="_blank">Instagram @yorimichi_poker</a><br>
+          <a href="https://x.com/YORIMICHI_Poker" target="_blank">X @YORIMICHI_Poker</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">YORIMICHI</div>
+  <p class="footer-sub">© 2025 POKER ROOM YORIMICHI — BeeBloom LLC. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+window.addEventListener('load',()=>document.getElementById('heroBg').classList.add('loaded'));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});}));
+</script>
+</body>
+</html>

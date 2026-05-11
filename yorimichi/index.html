@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポーカールーム YORIMICHI — 5パターン提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:#0A0A0A;color:#fff;min-height:100vh;padding:3rem 5%;}
+header{margin-bottom:3rem;}
+.header-label{font-size:.72rem;color:#C9A84C;letter-spacing:.4em;font-weight:700;margin-bottom:.5rem;}
+h1{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.15em;margin-bottom:.4rem;}
+.header-sub{font-size:.82rem;color:rgba(255,255,255,.4);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+.card{background:#161616;border:1px solid #2A2A2A;border-radius:8px;overflow:hidden;transition:transform .2s,border-color .2s;}
+.card:hover{transform:translateY(-4px);border-color:#444;}
+.card-thumb{height:160px;position:relative;overflow:hidden;background:#111;}
+.card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.card:hover .card-thumb img{transform:scale(1.06);}
+.card-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:rgba(255,255,255,.1);position:absolute;top:0;right:1rem;line-height:1;}
+.card-body{padding:1.5rem;}
+.card-tag{font-size:.65rem;color:#C9A84C;font-weight:700;letter-spacing:.25em;margin-bottom:.4rem;}
+.card-name{font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.card-desc{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:1.2rem;}
+.card-palette{display:flex;gap:.4rem;margin-bottom:1.2rem;}
+.swatch{width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.1);}
+.card-link{display:block;text-align:center;background:#C9A84C;color:#000;padding:.7rem;font-size:.82rem;font-weight:700;text-decoration:none;border-radius:4px;transition:opacity .2s;}
+.card-link:hover{opacity:.85;}
+@media(max-width:600px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-label">HP PROPOSAL</div>
+  <h1>YORIMICHI — 5パターン提案</h1>
+  <p class="header-sub">お好みのデザインを選んでください。すべてスマートフォン対応・LINE予約導線実装済みです。</p>
+</header>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-thumb">
+      <img src="https://images.keizai.biz/izu_keizai/photonews/1758532896_b.jpg" alt="P1">
+      <div class="card-num">01</div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag">PATTERN 01</div>
+      <div class="card-name">ラグジュアリー — 漆黒×ゴールド</div>
+      <div class="card-palette">
+        <div class="swatch" style="background:#0A0A0A;border-color:#555"></div>
+        <div class="swatch" style="background:#C9A84C"></div>
+        <div class="swatch" style="background:#FAF6EF"></div>
+        <div class="swatch" style="background:#1A1A1A"></div>
+      </div>
+      <div class="card-desc">漆黒×ゴールド。高級カジノの格式と品格。Cormorant Garamond × Noto Serif JPで重厚感を演出。</div>
+      <a href="pattern1.html" class="card-link" target="_blank">このデザインを見る →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-thumb">
+      <img src="https://images.keizai.biz/izu_keizai/photonews/1758532831.jpg" alt="P2">
+      <div class="card-num">02</div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag">PATTERN 02</div>
+      <div class="card-name">ネオン グリーン — サイバーラウンジ</div>
+      <div class="card-palette">
+        <div class="swatch" style="background:#0A0A0A;border-color:#555"></div>
+        <div class="swatch" style="background:#00CC6A"></div>
+        <div class="swatch" style="background:#0A1F14"></div>
+        <div class="swatch" style="background:#fff;border-color:#444"></div>
+      </div>
+      <div class="card-desc">黒×ネオングリーン。都市型ゲームラウンジ。Bebas Neue × Noto Sans JPでスピード感を演出。</div>
+      <a href="pattern2.html" class="card-link" style="background:#00CC6A;color:#000" target="_blank">このデザインを見る →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-thumb">
+      <img src="https://images.keizai.biz/izu_keizai/photonews/1758532822.jpg" alt="P3">
+      <div class="card-num">03</div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag">PATTERN 03</div>
+      <div class="card-name">クリムゾン — 深紅の情熱</div>
+      <div class="card-palette">
+        <div class="swatch" style="background:#0D0D0D;border-color:#555"></div>
+        <div class="swatch" style="background:#B91C1C"></div>
+        <div class="swatch" style="background:#FFF5F5"></div>
+        <div class="swatch" style="background:#2A0A0A"></div>
+      </div>
+      <div class="card-desc">深紅×黒。ポーカーの情熱とスリルを体現。エレガントで大人なデザイン。</div>
+      <a href="pattern3.html" class="card-link" style="background:#B91C1C" target="_blank">このデザインを見る →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-thumb">
+      <img src="https://images.keizai.biz/izu_keizai/photonews/1758532815.jpg" alt="P4">
+      <div class="card-num">04</div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag">PATTERN 04</div>
+      <div class="card-name">モノクローム — クリーン & ボールド</div>
+      <div class="card-palette">
+        <div class="swatch" style="background:#fff;border-color:#ccc"></div>
+        <div class="swatch" style="background:#111"></div>
+        <div class="swatch" style="background:#E82B2B"></div>
+        <div class="swatch" style="background:#F5F5F5"></div>
+      </div>
+      <div class="card-desc">白×黒×赤アクセント。視認性最高・スマホ映え。Playfair Display × Noto Sans JP。</div>
+      <a href="pattern4.html" class="card-link" style="background:#111" target="_blank">このデザインを見る →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-thumb">
+      <img src="https://images.keizai.biz/izu_keizai/photonews/1758532794.jpg" alt="P5">
+      <div class="card-num">05</div>
+    </div>
+    <div class="card-body">
+      <div class="card-tag">PATTERN 05</div>
+      <div class="card-name">ミッドナイト パープル — 夜の高揚感</div>
+      <div class="card-palette">
+        <div class="swatch" style="background:#0A0812;border-color:#555"></div>
+        <div class="swatch" style="background:#7C3AED"></div>
+        <div class="swatch" style="background:#F5C842"></div>
+        <div class="swatch" style="background:#1A1030"></div>
+      </div>
+      <div class="card-desc">深紫×ゴールド。夜のラウンジ感。Bebas Neue + フルスクリーンヒーロー + 流れるティッカー。</div>
+      <a href="pattern5.html" class="card-link" style="background:#7C3AED" target="_blank">このデザインを見る →</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
