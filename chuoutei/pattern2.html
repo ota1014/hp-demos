@@ -4,317 +4,289 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中央亭 | 沼津の餃子専門店</title>
-<meta name="description" content="沼津駅前の餃子専門店「中央亭」。半世紀以上愛され続ける名店。たべログ餃子百名店2019・2021選出。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root { --red:#D93025; --dark:#111; --mid:#444; --light:#F6F6F6; --white:#fff; --border:#E8E8E8; }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Noto Sans JP',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden;}
-
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(.16,1,.3,1),transform 0.7s cubic-bezier(.16,1,.3,1);}
-.reveal.left{transform:translateX(-40px);}
-.reveal.right{transform:translateX(40px);}
-.reveal.visible{opacity:1;transform:none;}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}.d5{transition-delay:.5s;}
-
-nav{position:fixed;top:0;width:100%;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 6%;height:62px;background:var(--white);border-bottom:1px solid transparent;transition:border-color 0.3s,box-shadow 0.3s;}
-nav.scrolled{border-color:var(--border);box-shadow:0 2px 20px rgba(0,0,0,0.06);}
-.nav-logo{font-size:1.2rem;font-weight:700;letter-spacing:0.05em;}
-.nav-logo em{color:var(--red);font-style:normal;}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{font-size:0.83rem;font-weight:500;color:var(--mid);text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover{color:var(--red);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-.hamburger span{width:22px;height:1.5px;background:var(--dark);}
-
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:62px;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:4rem 6%;background:var(--white);}
-.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;color:var(--red);margin-bottom:1.8rem;}
-.hero-tag::before{content:'';width:24px;height:1.5px;background:var(--red);}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(4rem,8vw,6.5rem);font-weight:700;line-height:1;color:var(--dark);margin-bottom:0.6rem;opacity:0;animation:slideUp 0.9s 0.2s cubic-bezier(.16,1,.3,1) forwards;}
-.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--red);margin-bottom:2rem;opacity:0;animation:slideUp 0.9s 0.35s cubic-bezier(.16,1,.3,1) forwards;}
-.hero-desc{font-size:0.9rem;line-height:2.3;color:var(--mid);margin-bottom:2.5rem;max-width:400px;opacity:0;animation:slideUp 0.9s 0.5s cubic-bezier(.16,1,.3,1) forwards;}
-.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;opacity:0;animation:slideUp 0.9s 0.65s cubic-bezier(.16,1,.3,1) forwards;}
-.stat-item{}
-.stat-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--red);line-height:1;}
-.stat-label{font-size:0.7rem;color:#999;margin-top:0.3rem;letter-spacing:0.05em;}
-.hero-btn{display:inline-flex;align-items:center;gap:0.8rem;background:var(--dark);color:#fff;padding:1rem 2.5rem;text-decoration:none;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;transition:background 0.2s,gap 0.2s;opacity:0;animation:slideUp 0.9s 0.8s cubic-bezier(.16,1,.3,1) forwards;}
-.hero-btn:hover{background:var(--red);gap:1.2rem;}
-.hero-btn::after{content:'→';}
-.hero-right{position:relative;overflow:hidden;}
-.hero-img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease-out;transform:scale(1.1);}
-.hero-img.loaded{transform:scale(1);}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.15) 0%,transparent 30%);}
-
-@keyframes slideUp{to{opacity:1;transform:none;}}
-
-/* PHOTOS */
-.photos{display:grid;grid-template-columns:repeat(4,1fr);height:240px;}
-.photo-item{overflow:hidden;position:relative;}
-.photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(.16,1,.3,1);}
-.photo-item:hover img{transform:scale(1.1);}
-
-/* SECTION */
-section{padding:6rem 6%;}
-.container{max-width:1000px;margin:0 auto;}
-.tag{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.35em;color:var(--red);margin-bottom:0.8rem;}
-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;margin-bottom:1rem;line-height:1.2;}
-.lead{font-size:0.92rem;color:var(--mid);line-height:2.2;max-width:560px;}
-.line{width:40px;height:2px;background:var(--red);margin:1.5rem 0 2.5rem;}
-
-/* ABOUT */
-.about{background:var(--light);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:3rem;}
-.about-body p{font-size:0.92rem;line-height:2.3;color:var(--mid);margin-bottom:1.2rem;}
-.awards{display:flex;flex-direction:column;gap:1rem;}
-.award-card{background:var(--white);padding:1.5rem;border-left:3px solid var(--red);}
-.award-card-year{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--red);line-height:1;}
-.award-card-title{font-size:0.85rem;color:var(--dark);margin-top:0.4rem;font-weight:500;}
-.score-card{background:var(--dark);color:#fff;padding:2.5rem;text-align:center;}
-.score-num{font-family:'Playfair Display',serif;font-size:5rem;color:var(--red);line-height:1;}
-.score-text{font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:0.8rem;letter-spacing:0.15em;}
-
-/* REVIEWS */
-.reviews{background:var(--white);}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
-.review-card{border:1px solid var(--border);padding:2rem;transition:box-shadow 0.3s,transform 0.3s;}
-.review-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.1);transform:translateY(-4px);}
-.review-stars{color:var(--red);font-size:0.85rem;letter-spacing:0.15em;margin-bottom:1rem;}
-.review-text{font-size:0.88rem;line-height:2.1;color:var(--mid);margin-bottom:1.2rem;}
-.review-source{font-size:0.72rem;color:#bbb;font-weight:500;}
-
-/* MENU */
-.menu-section{background:var(--light);}
-.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2.5rem;}
-.menu-group{background:var(--white);padding:2.5rem;}
-.menu-group-title{font-size:0.72rem;font-weight:700;letter-spacing:0.3em;color:var(--red);margin-bottom:1.8rem;padding-bottom:0.8rem;border-bottom:2px solid var(--dark);}
-.menu-row{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border);}
-.menu-row:last-child{border-bottom:none;}
-.menu-name{font-size:0.92rem;font-weight:500;}
-.menu-sub{font-size:0.76rem;color:#aaa;margin-top:0.15rem;}
-.menu-price{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--red);}
-.menu-note{font-size:0.78rem;color:var(--mid);margin-top:1.5rem;line-height:2.1;padding:1.2rem 1.5rem;background:var(--white);border-left:2px solid var(--red);}
-
-/* ACCESS */
-.access-section{background:var(--dark);color:#fff;}
-.access-section .tag{color:var(--red);}
-.access-section h2{color:#fff;}
-.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;}
-.access-map iframe{width:100%;height:340px;border:none;}
-.access-info{display:flex;flex-direction:column;gap:0;}
-.info-row{display:flex;gap:1.5rem;padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,0.08);}
-.info-row-label{font-size:0.7rem;font-weight:700;letter-spacing:0.25em;color:var(--red);min-width:60px;padding-top:0.1rem;}
-.info-row-val{font-size:0.88rem;color:rgba(255,255,255,0.7);line-height:1.9;}
-.info-row-val a{color:#fff;text-decoration:none;transition:color 0.2s;}
-.info-row-val a:hover{color:var(--red);}
-
-footer{background:#0A0A0A;padding:2.5rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;}
-.footer-logo span{color:var(--red);}
-footer p{font-size:0.72rem;color:#444;}
-
-@media(max-width:768px){
-  .hero{grid-template-columns:1fr;min-height:auto;}
-  .hero-right{height:280px;}
-  .photos{grid-template-columns:repeat(2,1fr);height:200px;}
-  .photos .photo-item:nth-child(3),.photos .photo-item:nth-child(4){display:none;}
-  .about-grid{grid-template-columns:1fr;}
-  .review-grid{grid-template-columns:1fr;}
-  .menu-grid{grid-template-columns:1fr;}
-  .access-grid{grid-template-columns:1fr;}
-  nav{padding:0 5%;}
-  .hamburger{display:flex;}
-  .nav-links{display:none;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:var(--white);padding:2rem 6%;gap:1.8rem;border-bottom:1px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,0.1);}
-  .nav-links.open{display:flex;}
-  section{padding:4.5rem 5%;}
+:root{
+  --bg:#0D1B2A;--bg2:#111F30;--bg3:#162438;--accent:#4DAFCA;--gold:#E8C87A;--text:#F0F4FF;--muted:rgba(240,244,255,.5);
 }
-/* ── RESERVE ── */
-.reserve{background:var(--red);padding:5rem 5%;text-align:center;color:#fff;}
-.reserve .en-label{color:rgba(255,255,255,.55);}
-.reserve h2{font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;margin:.4rem 0 .8rem;}
-.reserve-bar{width:40px;height:2px;background:rgba(255,255,255,.4);margin:0 auto 2rem;}
-.reserve-lead{font-size:.92rem;color:rgba(255,255,255,.8);max-width:480px;margin:0 auto 2.5rem;line-height:2;}
-.reserve-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.2rem;}
-.r-btn{display:inline-block;padding:.9rem 2.4rem;font-size:.95rem;font-weight:700;text-decoration:none;transition:opacity .2s;}
-.r-btn:hover{opacity:.85;}
-.r-btn--call{background:#fff;color:var(--red);}
-.r-btn--sns{border:2px solid rgba(255,255,255,.6);color:#fff;}
-.reserve-note{font-size:.75rem;color:rgba(255,255,255,.5);}
-@media(max-width:600px){.r-btn{width:100%;text-align:center;}}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:none;}
+.delay-1{transition-delay:.12s;}.delay-2{transition-delay:.24s;}.delay-3{transition-delay:.36s;}.delay-4{transition-delay:.48s;}
+
+nav{position:fixed;top:0;width:100%;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 5%;height:68px;background:rgba(13,27,42,0);backdrop-filter:blur(0);transition:all .4s;}
+nav.scrolled{background:rgba(13,27,42,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(77,175,202,.12);}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:var(--text);letter-spacing:.3em;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:.68rem;color:var(--muted);text-decoration:none;letter-spacing:.2em;transition:color .3s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{color:var(--accent) !important;border:1px solid var(--accent);padding:.35rem 1rem;}
+@media(max-width:640px){.nav-links{display:none;}}
+
+.hero{height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:url('https://tblg.k-img.com/restaurant/images/Rvw/107163/640x640_rect_107163309.jpg');background-size:cover;background-position:center;transform:scale(1.06);transition:transform 8s ease-out;}
+.hero.loaded .hero-bg{transform:scale(1);}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(13,27,42,.9) 40%,rgba(13,27,42,.5) 100%);}
+.hero-content{position:relative;z-index:1;padding:2rem 5%;max-width:700px;}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.65rem;color:var(--accent);letter-spacing:.5em;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .3s forwards;}
+.hero-title{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;line-height:1.25;color:var(--text);margin-bottom:1.2rem;opacity:0;animation:fadeUp .9s .5s forwards;}
+.hero-title em{font-style:normal;color:var(--accent);}
+.hero-sub{font-family:'Noto Sans JP',sans-serif;font-size:.85rem;color:var(--muted);line-height:2;margin-bottom:2.5rem;opacity:0;animation:fadeUp .9s .7s forwards;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s forwards;}
+.btn-primary{display:inline-block;background:var(--accent);color:var(--bg);padding:.85rem 2rem;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-decoration:none;transition:opacity .3s;}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{display:inline-block;border:1px solid rgba(240,244,255,.3);color:var(--text);padding:.85rem 2rem;font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.15em;text-decoration:none;transition:border-color .3s;}
+.btn-ghost:hover{border-color:var(--accent);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+
+.ticker{background:var(--accent);color:var(--bg);padding:.55rem 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-flex;animation:tick 28s linear infinite;}
+.ticker-item{font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.2em;font-weight:600;padding:0 2.5rem;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+section{padding:6rem 5%;}
+.sec-label{font-family:'Montserrat',sans-serif;font-size:.6rem;color:var(--accent);letter-spacing:.5em;font-weight:700;margin-bottom:.8rem;}
+.sec-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;line-height:1.4;margin-bottom:1.5rem;}
+.sec-body{font-family:'Noto Sans JP',sans-serif;font-size:.87rem;color:var(--muted);line-height:2;max-width:540px;}
+.line-acc{width:48px;height:1px;background:var(--accent);margin:1.2rem 0;}
+
+.about{max-width:1100px;margin:0 auto;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-img img{width:100%;height:440px;object-fit:cover;}
+.about-img{position:relative;}
+.about-img::after{content:'';position:absolute;bottom:-12px;right:-12px;left:12px;top:12px;border:1px solid rgba(77,175,202,.25);}
+.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem;}
+.stat-box{padding:1.2rem;border:1px solid rgba(77,175,202,.15);background:var(--bg2);}
+.stat-val{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:700;color:var(--accent);}
+.stat-lbl{font-family:'Montserrat',sans-serif;font-size:.6rem;color:var(--muted);letter-spacing:.15em;margin-top:.3rem;}
+.award-list{margin-top:1.5rem;}
+.award-row{display:flex;align-items:center;gap:.7rem;padding:.6rem 0;border-bottom:1px solid rgba(240,244,255,.06);font-family:'Noto Sans JP',sans-serif;font-size:.77rem;color:var(--muted);}
+.award-row::before{content:'✦';color:var(--gold);flex-shrink:0;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:2.5rem;}}
+
+.menu{background:var(--bg2);}
+.menu-inner{max-width:900px;margin:0 auto;}
+.menu-cats{display:flex;gap:0;border-bottom:1px solid rgba(77,175,202,.15);margin-bottom:2.5rem;}
+.menu-cat{font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.2em;padding:.7rem 1.4rem;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;}
+.menu-cat.active{color:var(--accent);border-bottom-color:var(--accent);}
+.menu-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(77,175,202,.08);}
+.menu-item{background:var(--bg2);padding:1.4rem;}
+.menu-item-name{font-size:1rem;font-weight:700;margin-bottom:.3rem;}
+.menu-item-sub{font-family:'Montserrat',sans-serif;font-size:.65rem;color:var(--muted);letter-spacing:.1em;margin-bottom:.8rem;}
+.menu-item-price{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--accent);}
+.menu-note{margin-top:1.5rem;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--muted);line-height:1.9;padding:1rem;border-left:2px solid rgba(77,175,202,.4);}
+
+.reserve{background:var(--bg3);padding:6rem 5%;text-align:center;}
+.reserve .sec-title{color:var(--text);}
+.reserve .sec-body{margin:0 auto 2.5rem;}
+.reserve-btns{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;}
+.btn-tel{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--bg);padding:1rem 2.2rem;font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;text-decoration:none;transition:opacity .3s;}
+.btn-tel:hover{opacity:.85;}
+.btn-line{display:inline-flex;align-items:center;gap:.6rem;background:#06C755;color:#fff;padding:1rem 2.2rem;font-family:'Noto Sans JP',sans-serif;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .3s;}
+.btn-line:hover{opacity:.85;}
+.reserve-note{margin-top:1.5rem;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--muted);line-height:1.8;}
+
+.info{max-width:1100px;margin:0 auto;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+table.info-tbl{width:100%;border-collapse:collapse;}
+table.info-tbl tr{border-bottom:1px solid rgba(240,244,255,.07);}
+table.info-tbl th{font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:.12em;color:var(--muted);font-weight:400;padding:.9rem .5rem .9rem 0;width:90px;vertical-align:top;}
+table.info-tbl td{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;color:var(--text);padding:.9rem 0;line-height:1.7;}
+.map-wrap iframe{width:100%;height:340px;border:0;display:block;opacity:.85;}
+@media(max-width:768px){.info-grid{grid-template-columns:1fr;}}
+
+footer{background:#080F18;padding:3rem 5%;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--muted);}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.footer-logo{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);letter-spacing:.2em;margin-bottom:.5rem;}
+.footer-copy{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(240,244,255,.06);font-size:.64rem;color:rgba(240,244,255,.2);text-align:center;}
+
+.plan-badge{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--accent);color:var(--bg);font-family:'Montserrat',sans-serif;font-size:.6rem;letter-spacing:.2em;font-weight:700;padding:.5rem 1rem;z-index:999;}
 </style>
 </head>
 <body>
+
 <nav id="nav">
-  <div class="nav-logo">中央<em>亭</em></div>
-  <ul class="nav-links" id="navLinks">
+  <div class="nav-logo">中央亭</div>
+  <ul class="nav-links">
     <li><a href="#about">こだわり</a></li>
     <li><a href="#menu">メニュー</a></li>
-    <li><a href="#access">アクセス</a></li>
+    <li><a href="#reserve">アクセス</a></li>
+    <li><a href="tel:0559624420" class="nav-cta">電話する</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 
-<div class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">GYOZA SPECIALIST · NUMAZU</div>
-    <h1 class="hero-title">中央亭</h1>
-    <p class="hero-sub">The Legendary Gyoza</p>
-    <p class="hero-desc">餃子とライスだけで半世紀以上。肉汁あふれる丸型餃子は、沼津が誇る本物の味です。</p>
-    <div class="hero-stats">
-      <div class="stat-item"><div class="stat-num">4.3</div><div class="stat-label">Tripadvisor 評価</div></div>
-      <div class="stat-item"><div class="stat-num">290+</div><div class="stat-label">口コミ件数</div></div>
-      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">年の歴史</div></div>
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">NUMAZU — GYOZA SPECIALIST SINCE 1970s</p>
+    <h1 class="hero-title">沼津が誇る、<br><em>餃子</em>の名店。</h1>
+    <p class="hero-sub">半世紀以上、変わらない味を守り続ける。<br>たべログ餃子百名店に2度選ばれた、行列の絶えない一軒。</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">メニューを見る</a>
+      <a href="#reserve" class="btn-ghost">アクセス</a>
     </div>
-    <a href="#menu" class="hero-btn">メニューを見る</a>
   </div>
-  <div class="hero-right">
-    <img class="hero-img" id="heroImg" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/90/e0/1e/caption.jpg" alt="中央亭の餃子" loading="eager">
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">餃子 小（6個）¥540</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">餃子 中（8個）¥720</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">餃子 大（10個）¥900</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">OPEN 11:00 SOLD OUT CLOSE</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">TABELOG 餃子百名店 2019・2021</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">Tripadvisor 4.3★ 290+ REVIEWS</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">餃子 小（6個）¥540</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">餃子 中（8個）¥720</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">餃子 大（10個）¥900</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">OPEN 11:00 SOLD OUT CLOSE</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">TABELOG 餃子百名店 2019・2021</span>
+    <span class="ticker-item">•</span>
+    <span class="ticker-item">Tripadvisor 4.3★ 290+ REVIEWS</span>
+    <span class="ticker-item">•</span>
   </div>
 </div>
 
-<div class="photos">
-  <div class="photo-item"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/50/cf/b6/photo0jpg.jpg" alt="餃子" loading="lazy"></div>
-  <div class="photo-item"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/72/31/83/caption.jpg" alt="餃子" loading="lazy"></div>
-  <div class="photo-item"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/0a/bc/2e/caption.jpg" alt="店内" loading="lazy"></div>
-  <div class="photo-item"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/0e/25/b5/caption.jpg" alt="餃子" loading="lazy"></div>
-</div>
-
-<section class="about" id="about">
-  <div class="container">
-    <div class="tag reveal">ABOUT</div>
-    <h2 class="reveal d1">なぜ、餃子だけなのか。</h2>
-    <div class="line reveal d2"></div>
+<section id="about">
+  <div class="about">
     <div class="about-grid">
-      <div class="about-body reveal">
-        <p>メニューは餃子とライスのみ。余計なものは一切ない。それだけで半世紀以上、沼津の食を引っ張り続けてきた。シンプルだからこそ、妥協は一切許されない。</p>
-        <p>丸型の大ぶりな一枚に、肉をたっぷりと詰める。まず焼いて香ばしい焦げ目をつけ、その後に蒸し上げるオリジナル製法。外のパリッ、中のジュワは唯一無二だ。</p>
-        <p>2022年4月、沼津駅南口すぐの新築店舗に移転。清潔感のある白い空間でも、変わらない味を提供し続けている。</p>
+      <div class="about-img reveal">
+        <img src="https://tblg.k-img.com/restaurant/images/Rvw/107163/640x640_rect_107163311.jpg" alt="中央亭の餃子">
       </div>
-      <div class="reveal right">
-        <div class="awards">
-          <div class="award-card"><div class="award-card-year">2019</div><div class="award-card-title">たべログ 餃子百名店 選出</div></div>
-          <div class="award-card"><div class="award-card-year">2021</div><div class="award-card-title">たべログ 餃子百名店 選出</div></div>
-          <div class="award-card"><div class="award-card-year">Award</div><div class="award-card-title">Tripadvisor トラベラーズチョイス賞</div></div>
+      <div>
+        <p class="sec-label reveal">OUR STORY</p>
+        <h2 class="sec-title reveal">港町沼津で<br>半世紀、餃子ひと筋。</h2>
+        <div class="line-acc reveal"></div>
+        <p class="sec-body reveal">1970年代に創業。変わらないレシピ、変わらない味。シンプルなメニューで毎日行列が絶えない。「それまで食べた中で最高に美味しい餃子でした」——そんな声が何百と積み重なり、沼津の誇りとなった。</p>
+        <div class="stat-row reveal">
+          <div class="stat-box">
+            <div class="stat-val">4.3</div>
+            <div class="stat-lbl">TRIPADVISOR</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">290+</div>
+            <div class="stat-lbl">REVIEWS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">2度</div>
+            <div class="stat-lbl">百名店選出</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">50yr+</div>
+            <div class="stat-lbl">HISTORY</div>
+          </div>
         </div>
-        <div class="score-card" style="margin-top:1rem">
-          <div class="score-num" id="scoreNum">0</div>
-          <div class="score-text">TRIPADVISOR ★ 沼津 6位 / 口コミ 290件+</div>
+        <div class="award-list reveal delay-1">
+          <div class="award-row">たべログ 餃子百名店 2019 選出</div>
+          <div class="award-row">たべログ 餃子百名店 2021 選出</div>
+          <div class="award-row">Tripadvisor トラベラーズチョイス賞</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="reviews">
-  <div class="container">
-    <div class="tag reveal">REVIEWS</div>
-    <h2 class="reveal d1">お客様の声</h2>
-    <div class="line reveal d2"></div>
-    <div class="review-grid">
-      <div class="review-card reveal d1">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">それまで食べた中で最高に美味しい餃子でした。肉がたっぷり詰まっていて、外はパリッ、中はジューシー。</p>
-        <div class="review-source">Tripadvisor 口コミより</div>
-      </div>
-      <div class="review-card reveal d2">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">毎日行列ができる人気店。30分待ちましたが、それだけの価値がある一枚。また必ず来ます。</p>
-        <div class="review-source">Tripadvisor 口コミより</div>
-      </div>
-      <div class="review-card reveal d3">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">親子四代で通い続けている理由がわかりました。オーナーさんもとてもフレンドリーで居心地が良いです。</p>
-        <div class="review-source">Tripadvisor 口コミより</div>
-      </div>
+<section class="menu" id="menu">
+  <div class="menu-inner">
+    <p class="sec-label reveal">MENU</p>
+    <h2 class="sec-title reveal">メニュー</h2>
+    <div class="line-acc reveal"></div>
+    <div class="menu-cats">
+      <div class="menu-cat active">店内</div>
+      <div class="menu-cat">テイクアウト</div>
+      <div class="menu-cat">ドリンク</div>
     </div>
+    <div class="menu-list" id="menu-list">
+      <div class="menu-item reveal"><div class="menu-item-name">餃子 小</div><div class="menu-item-sub">6 PCS</div><div class="menu-item-price">¥540</div></div>
+      <div class="menu-item reveal delay-1"><div class="menu-item-name">餃子 中</div><div class="menu-item-sub">8 PCS</div><div class="menu-item-price">¥720</div></div>
+      <div class="menu-item reveal delay-2"><div class="menu-item-name">餃子 大</div><div class="menu-item-sub">10 PCS</div><div class="menu-item-price">¥900</div></div>
+      <div class="menu-item reveal delay-3"><div class="menu-item-name">ライス 普通</div><div class="menu-item-sub">RICE</div><div class="menu-item-price">¥150</div></div>
+      <div class="menu-item reveal delay-4"><div class="menu-item-name">ライス 大盛</div><div class="menu-item-sub">LARGE RICE</div><div class="menu-item-price">¥200</div></div>
+    </div>
+    <div class="menu-note reveal">※ 売り切れ次第閉店 ／ 日・祝は店内飲食不可（テイクアウトのみ）／ 価格はすべて税込</div>
   </div>
 </section>
 
-<section class="menu-section" id="menu">
-  <div class="container">
-    <div class="tag reveal">MENU</div>
-    <h2 class="reveal d1">メニュー</h2>
-    <div class="line reveal d2"></div>
-    <div class="menu-grid">
-      <div class="menu-group reveal d1">
-        <div class="menu-group-title">餃子（店内）</div>
-        <div class="menu-row"><div><div class="menu-name">小</div><div class="menu-sub">6個</div></div><div class="menu-price">¥540</div></div>
-        <div class="menu-row"><div><div class="menu-name">中</div><div class="menu-sub">8個</div></div><div class="menu-price">¥720</div></div>
-        <div class="menu-row"><div><div class="menu-name">大</div><div class="menu-sub">10個</div></div><div class="menu-price">¥900</div></div>
-        <div class="menu-row"><div class="menu-name">ライス 普通</div><div class="menu-price">¥150</div></div>
-        <div class="menu-row"><div class="menu-name">ライス 大盛</div><div class="menu-price">¥200</div></div>
-      </div>
-      <div class="menu-group reveal d2">
-        <div class="menu-group-title">テイクアウト</div>
-        <div class="menu-row"><div class="menu-name">10個</div><div class="menu-price">¥900</div></div>
-        <div class="menu-row"><div class="menu-name">15個</div><div class="menu-price">¥1,350</div></div>
-        <div class="menu-row"><div class="menu-name">20個</div><div class="menu-price">¥1,800</div></div>
-        <div class="menu-row"><div class="menu-name">30個</div><div class="menu-price">¥2,700</div></div>
-        <div class="menu-row"><div class="menu-name">ライス 普通 / 大盛</div><div class="menu-price">¥150〜</div></div>
-      </div>
-      <div class="menu-group reveal d3">
-        <div class="menu-group-title">ドリンク</div>
-        <div class="menu-row"><div class="menu-name">ビール</div><div class="menu-price">¥500</div></div>
-        <div class="menu-row"><div class="menu-name">キリンフリー</div><div class="menu-price">¥350</div></div>
-        <div class="menu-row"><div class="menu-name">コカ・コーラ</div><div class="menu-price">¥200</div></div>
-        <div class="menu-row"><div class="menu-name">ウーロン茶</div><div class="menu-price">¥200</div></div>
-        <div class="menu-row"><div class="menu-name">オレンジジュース</div><div class="menu-price">¥200</div></div>
-      </div>
-    </div>
-    <p class="menu-note reveal">※ 売り切れ次第閉店 &nbsp;|&nbsp; テイクアウト：11:00〜17:30（日・祝は〜17:00） &nbsp;|&nbsp; 価格税込</p>
-  </div>
-</section>
-
-<section class="access-section" id="access">
-  <div class="container">
-    <div class="tag reveal">ACCESS</div>
-    <h2 class="reveal d1">店舗情報</h2>
-    <div class="line reveal d2" style="background:var(--red)"></div>
-    <div class="access-grid">
-      <div class="reveal left"><iframe src="https://maps.google.com/maps?q=35.1019097,138.8560362&z=16&output=embed" allowfullscreen loading="lazy" title="地図"></iframe></div>
-      <div class="access-info reveal right">
-        <div class="info-row"><div class="info-row-label">住所</div><div class="info-row-val">静岡県沼津市添地町46<br><small style="opacity:.5">沼津駅南口より徒歩約5分</small></div></div>
-        <div class="info-row"><div class="info-row-label">電話</div><div class="info-row-val"><a href="tel:0559624420">055-962-4420</a></div></div>
-        <div class="info-row"><div class="info-row-label">営業時間</div><div class="info-row-val">11:00 〜 売り切れ次第閉店<br><small style="opacity:.5">日・祝：テイクアウトのみ（〜17:00）</small></div></div>
-        <div class="info-row"><div class="info-row-label">定休日</div><div class="info-row-val">月曜日（不定期連休あり）</div></div>
-        <div class="info-row"><div class="info-row-label">Instagram</div><div class="info-row-val"><a href="https://www.instagram.com/chuuoutei/" target="_blank">@chuuoutei</a></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESERVATION -->
 <section class="reserve" id="reserve">
-  <div class="en-label reveal">RESERVATION</div>
-  <h2 class="reveal delay-1">ご来店・テイクアウト予約</h2>
-  <div class="reserve-bar reveal delay-2"></div>
-  <p class="reserve-lead reveal delay-3">ご来店はいつでも歓迎いたします。<br>テイクアウトのご予約・お問い合わせはお電話にて承ります。</p>
-  <div class="reserve-btns reveal delay-4">
-    <a href="tel:0559624420" class="r-btn r-btn--call">📞 &nbsp;055-962-4420</a>
-    <a href="https://www.instagram.com/chuuoutei/" target="_blank" rel="noopener" class="r-btn r-btn--sns">Instagram で最新情報</a>
+  <p class="sec-label reveal">VISIT US</p>
+  <h2 class="sec-title reveal">ご来店・お持ち帰り</h2>
+  <div class="line-acc" style="margin:1.2rem auto;background:var(--accent);"></div>
+  <p class="sec-body reveal">お電話またはLINEからお気軽にご連絡ください。</p>
+  <div class="reserve-btns reveal">
+    <a href="tel:0559624420" class="btn-tel">☎ 055-962-4420</a>
+    <a href="#" class="btn-line">LINE で問い合わせ</a>
   </div>
-  <p class="reserve-note reveal delay-5">営業時間 11:00〜売り切れ次第閉店 ／ 定休日 月曜日</p>
+  <div class="reserve-note reveal">
+    営業時間 11:00〜売り切れ次第閉店 ／ テイクアウト 11:00〜17:30（日・祝〜17:00）<br>
+    定休日: 月曜日（不定休あり）
+  </div>
+</section>
+
+<section id="info">
+  <div class="info">
+    <p class="sec-label reveal">ACCESS</p>
+    <h2 class="sec-title reveal">店舗情報</h2>
+    <div class="line-acc reveal"></div>
+    <div class="info-grid">
+      <table class="info-tbl reveal">
+        <tr><th>店名</th><td>中央亭</td></tr>
+        <tr><th>住所</th><td>静岡県沼津市添地町46<br><small style="color:var(--muted);">沼津駅南口より徒歩約5分</small></td></tr>
+        <tr><th>電話</th><td><a href="tel:0559624420" style="color:var(--accent);text-decoration:none;">055-962-4420</a></td></tr>
+        <tr><th>営業時間</th><td>11:00〜売り切れ次第閉店<br><small style="color:var(--muted);">テイクアウト 11:00〜17:30</small></td></tr>
+        <tr><th>定休日</th><td>月曜日（不定休あり）</td></tr>
+      </table>
+      <div class="map-wrap reveal">
+        <iframe src="https://maps.google.com/maps?q=35.1019097,138.8560362&z=17&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <div class="footer-logo">中央<span>亭</span></div>
-  <p>© 2024 中央亭 All Rights Reserved.</p>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">中央亭</div>
+      <div>静岡県沼津市添地町46</div>
+      <div>TEL: 055-962-4420</div>
+    </div>
+    <div>
+      <div>営業 11:00〜売り切れ次第閉店</div>
+      <div>テイクアウト 11:00〜17:30（日・祝〜17:00）</div>
+      <div>定休日: 月曜日（不定休あり）</div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 中央亭 All Rights Reserved.</div>
 </footer>
 
+<div class="plan-badge">PATTERN 2 — 沼津の誇り</div>
+
 <script>
-window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('scrolled',scrollY>60); });
-window.addEventListener('load',()=>{ document.getElementById('heroImg').classList.add('loaded'); });
-const obs=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }),{threshold:.12,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-const scoreEl=document.getElementById('scoreNum');
-const so=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ let s=0,end=43,t=setInterval(()=>{ s+=43/90; if(s>=end){s=end;clearInterval(t);} scoreEl.textContent=(s/10).toFixed(1); },16); so.unobserve(e.target); } }),{threshold:.5});
-so.observe(scoreEl);
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')});},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>60);});
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('hero').classList.add('loaded');});
+const cats=document.querySelectorAll('.menu-cat');
+cats.forEach((cat,i)=>{
+  cat.addEventListener('click',()=>{
+    cats.forEach(c=>c.classList.remove('active'));cat.classList.add('active');
+    const m=[[{n:'餃子 小',s:'6 PCS',p:'¥540'},{n:'餃子 中',s:'8 PCS',p:'¥720'},{n:'餃子 大',s:'10 PCS',p:'¥900'},{n:'ライス 普通',s:'RICE',p:'¥150'},{n:'ライス 大盛',s:'LARGE',p:'¥200'}],[{n:'10個',s:'TAKEOUT',p:'¥900'},{n:'15個',s:'TAKEOUT',p:'¥1,350'},{n:'20個',s:'TAKEOUT',p:'¥1,800'},{n:'30個',s:'TAKEOUT',p:'¥2,700'},{n:'ライス',s:'',p:'¥150〜'}],[{n:'ビール',s:'BEER',p:'¥500'},{n:'キリンフリー',s:'NO ALCOHOL',p:'¥350'},{n:'コーラ',s:'SOFT DRINK',p:'¥200'},{n:'ウーロン茶',s:'TEA',p:'¥200'},{n:'オレンジJuice',s:'JUICE',p:'¥200'}]];
+    document.getElementById('menu-list').innerHTML=m[i].map(x=>`<div class="menu-item"><div class="menu-item-name">${x.n}</div><div class="menu-item-sub">${x.s}</div><div class="menu-item-price">${x.p}</div></div>`).join('');
+  });
+});
 </script>
 </body>
 </html>
