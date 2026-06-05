@@ -207,10 +207,13 @@ function doSubmit() {
     experience: selExp
   });
 
-  // GAS API に送信（失敗してもリダイレクトは実行する）
-  fetch(GAS_URL + '?' + params.toString(), { mode: 'no-cors' })
-    .catch(() => {})
-    .finally(() => startRedirect());
+  // Image beacon でGAS APIに送信（リダイレクト追従・CORS不要）
+  const beacon = new Image();
+  beacon.onload  = startRedirect;
+  beacon.onerror = startRedirect;
+  beacon.src = GAS_URL + '?' + params.toString();
+  // 3秒タイムアウト（GASが応答しなくてもリダイレクト）
+  setTimeout(startRedirect, 3000);
 }
 
 function startRedirect() {
