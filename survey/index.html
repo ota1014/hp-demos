@@ -154,33 +154,37 @@ let selRef = new Set();
 let selExp = '';
 
 // ===== 選択肢レンダリング =====
-function buildOpts(containerId, items, isCheckbox, onSelect) {
+function renderOpts(containerId, items, isCheckbox) {
   const el = document.getElementById(containerId);
+  const checkIcon = `<svg class="checkmark" viewBox="0 0 11 11" fill="none" stroke="#fff" stroke-width="2"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5"/></svg>`;
+  const radioIcon = `<svg class="checkmark" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" fill="#fff"/></svg>`;
   el.innerHTML = items.map((text, i) => {
     const cls = isCheckbox ? 'opt checkbox' : 'opt';
-    const icon = isCheckbox
-      ? `<svg class="checkmark" viewBox="0 0 11 11" fill="none" stroke="#fff" stroke-width="2"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5"/></svg>`
-      : `<svg class="checkmark" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" fill="#fff"/></svg>`;
-    return `<div class="${cls}" id="opt-${containerId}-${i}" onclick="(${onSelect})(${i}, ${JSON.stringify(text)})">
-      <div class="mark">${icon}</div>
+    const fn  = isCheckbox ? `clickRef(${i})` : `clickExp(${i})`;
+    return `<div class="${cls}" id="opt-${containerId}-${i}" onclick="${fn}">
+      <div class="mark">${isCheckbox ? checkIcon : radioIcon}</div>
       <div class="opt-text">${text}</div>
     </div>`;
   }).join('');
 }
 
-buildOpts('opts-ref', REFERRAL_OPTIONS, true, function(i, val) {
-  const el = document.getElementById('opt-opts-ref-' + i);
+function clickRef(i) {
+  const val = REFERRAL_OPTIONS[i];
+  const el  = document.getElementById('opt-opts-ref-' + i);
   if (selRef.has(val)) { selRef.delete(val); el.classList.remove('sel'); }
   else                  { selRef.add(val);    el.classList.add('sel'); }
   document.getElementById('btn-next').disabled = selRef.size === 0;
-});
+}
 
-buildOpts('opts-exp', EXPERIENCE_OPTIONS, false, function(i, val) {
+function clickExp(i) {
   document.querySelectorAll('#opts-exp .opt').forEach(e => e.classList.remove('sel'));
   document.getElementById('opt-opts-exp-' + i).classList.add('sel');
-  selExp = val;
+  selExp = EXPERIENCE_OPTIONS[i];
   document.getElementById('btn-submit').disabled = false;
-});
+}
+
+renderOpts('opts-ref', REFERRAL_OPTIONS, true);
+renderOpts('opts-exp', EXPERIENCE_OPTIONS, false);
 
 // ===== ナビゲーション =====
 function show(id) {
