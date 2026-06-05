@@ -66,7 +66,8 @@ body{display:flex;align-items:center;justify-content:center;padding:24px 16px;mi
 .view.on{display:block}
 
 .done-wrap{text-align:center;padding:12px 0}
-.done-icon{font-size:52px;margin-bottom:18px}
+.done-icon{margin-bottom:18px}
+.done-logo{width:110px;height:110px;border-radius:50%;object-fit:contain;background:#fff;padding:8px;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
 .done-title{font-size:20px;font-weight:700;margin-bottom:10px}
 .done-body{font-size:14px;color:var(--sub);line-height:1.7;margin-bottom:24px}
 .countdown{font-size:13px;color:var(--sub)}
@@ -113,7 +114,7 @@ body{display:flex;align-items:center;justify-content:center;padding:24px 16px;mi
     <!-- 完了 -->
     <div class="view" id="v-done">
       <div class="done-wrap">
-        <div class="done-icon">🎴</div>
+        <div class="done-icon"><img src="logo.png" class="done-logo" alt="YORIMICHI"></div>
         <div class="done-title">ありがとうございます！</div>
         <div class="done-body">アンケートへのご回答<br>ありがとうございました。<br>続けてアカウント登録をお願いします。</div>
         <div class="countdown">
