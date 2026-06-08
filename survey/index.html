@@ -88,27 +88,44 @@ body{display:flex;align-items:center;justify-content:center;padding:24px 16px;mi
     <div class="view on" id="v-q1">
       <div class="progress">
         <div class="pstep on"></div>
-        <div class="pstep" id="p2"></div>
+        <div class="pstep"></div>
+        <div class="pstep"></div>
       </div>
-      <div class="q-step">質問 1 / 2</div>
+      <div class="q-step">質問 1 / 3</div>
       <div class="q-title">YORIMICHIをどこでお知りになりましたか？</div>
       <div class="q-note">複数選択できます</div>
       <div class="opts" id="opts-ref"></div>
-      <button class="btn btn-red" id="btn-next" onclick="goQ2()" disabled>次へ</button>
+      <button class="btn btn-red" id="btn-q1-next" onclick="goQ2()" disabled>次へ</button>
     </div>
 
-    <!-- Q2 ポーカー経験 -->
+    <!-- Q2 来店の決め手 -->
     <div class="view" id="v-q2">
       <div class="progress">
         <div class="pstep on"></div>
-        <div class="pstep on" id="p2b"></div>
+        <div class="pstep on"></div>
+        <div class="pstep"></div>
       </div>
-      <div class="q-step">質問 2 / 2</div>
+      <div class="q-step">質問 2 / 3</div>
+      <div class="q-title">今回ご来店の決め手は何ですか？</div>
+      <div class="q-note">複数選択できます</div>
+      <div class="opts" id="opts-mot"></div>
+      <button class="btn btn-red" id="btn-q2-next" onclick="goQ3()" disabled>次へ</button>
+      <button class="btn btn-back" onclick="goQ1()">← 戻る</button>
+    </div>
+
+    <!-- Q3 ポーカー経験 -->
+    <div class="view" id="v-q3">
+      <div class="progress">
+        <div class="pstep on"></div>
+        <div class="pstep on"></div>
+        <div class="pstep on"></div>
+      </div>
+      <div class="q-step">質問 3 / 3</div>
       <div class="q-title">ポーカーのご経験を教えてください</div>
-      <div class="q-note" style="margin-bottom:16px"> </div>
+      <div class="q-note"> </div>
       <div class="opts" id="opts-exp"></div>
       <button class="btn btn-red" id="btn-submit" onclick="doSubmit()" disabled>登録へ進む</button>
-      <button class="btn btn-back" onclick="goQ1()">← 戻る</button>
+      <button class="btn btn-back" onclick="goQ2()">← 戻る</button>
     </div>
 
     <!-- 完了 -->
@@ -134,11 +151,25 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbwwH3q2ynIl_PoHLYGn65rv
 // ========================================================
 
 const REFERRAL_OPTIONS = [
-  'Instagram',
+  'Instagramの投稿',
+  'Instagramの広告',
   'X（Twitter）',
   '友人・知人の紹介',
   'Google検索',
+  'Googleマップ・口コミ',
   '看板・チラシ',
+  'その他'
+];
+
+const MOTIVE_OPTIONS = [
+  'Instagramの投稿を見て',
+  'Instagramの広告を見て',
+  'X（旧Twitter）の投稿を見て',
+  '友人・知人に紹介されて',
+  'Google等で検索して',
+  'Googleマップ・口コミを見て',
+  '看板・チラシを見て',
+  '以前来たことがあって',
   'その他'
 ];
 
@@ -152,6 +183,7 @@ const EXPERIENCE_OPTIONS = [
 const PPP_URL = 'https://ppp.arkadia.bet/login';
 
 let selRef = new Set();
+let selMot = new Set();
 let selExp = '';
 
 // ===== 選択肢レンダリング =====
@@ -161,7 +193,9 @@ function renderOpts(containerId, items, isCheckbox) {
   const radioIcon = `<svg class="checkmark" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" fill="#fff"/></svg>`;
   el.innerHTML = items.map((text, i) => {
     const cls = isCheckbox ? 'opt checkbox' : 'opt';
-    const fn  = isCheckbox ? `clickRef(${i})` : `clickExp(${i})`;
+    const fn  = isCheckbox
+      ? `clickCheck('${containerId}', ${i})`
+      : `clickRadio(${i})`;
     return `<div class="${cls}" id="opt-${containerId}-${i}" onclick="${fn}">
       <div class="mark">${isCheckbox ? checkIcon : radioIcon}</div>
       <div class="opt-text">${text}</div>
@@ -169,15 +203,20 @@ function renderOpts(containerId, items, isCheckbox) {
   }).join('');
 }
 
-function clickRef(i) {
-  const val = REFERRAL_OPTIONS[i];
-  const el  = document.getElementById('opt-opts-ref-' + i);
-  if (selRef.has(val)) { selRef.delete(val); el.classList.remove('sel'); }
-  else                  { selRef.add(val);    el.classList.add('sel'); }
-  document.getElementById('btn-next').disabled = selRef.size === 0;
+function clickCheck(containerId, i) {
+  const isRef = containerId === 'opts-ref';
+  const options = isRef ? REFERRAL_OPTIONS : MOTIVE_OPTIONS;
+  const sel     = isRef ? selRef : selMot;
+  const btnId   = isRef ? 'btn-q1-next' : 'btn-q2-next';
+
+  const val = options[i];
+  const el  = document.getElementById(`opt-${containerId}-${i}`);
+  if (sel.has(val)) { sel.delete(val); el.classList.remove('sel'); }
+  else              { sel.add(val);    el.classList.add('sel'); }
+  document.getElementById(btnId).disabled = sel.size === 0;
 }
 
-function clickExp(i) {
+function clickRadio(i) {
   document.querySelectorAll('#opts-exp .opt').forEach(e => e.classList.remove('sel'));
   document.getElementById('opt-opts-exp-' + i).classList.add('sel');
   selExp = EXPERIENCE_OPTIONS[i];
@@ -185,17 +224,19 @@ function clickExp(i) {
 }
 
 renderOpts('opts-ref', REFERRAL_OPTIONS, true);
+renderOpts('opts-mot', MOTIVE_OPTIONS,   true);
 renderOpts('opts-exp', EXPERIENCE_OPTIONS, false);
 
 // ===== ナビゲーション =====
 function show(id) {
-  ['v-q1','v-q2','v-done'].forEach(v => {
+  ['v-q1','v-q2','v-q3','v-done'].forEach(v => {
     document.getElementById(v).classList.toggle('on', v === id);
   });
 }
 
 function goQ1() { show('v-q1'); }
 function goQ2() { if (selRef.size > 0) show('v-q2'); }
+function goQ3() { if (selMot.size > 0) show('v-q3'); }
 
 // ===== 送信 =====
 function doSubmit() {
@@ -205,15 +246,14 @@ function doSubmit() {
 
   const params = new URLSearchParams({
     referral:   Array.from(selRef).join(','),
+    motive:     Array.from(selMot).join(','),
     experience: selExp
   });
 
-  // Image beacon でGAS APIに送信（リダイレクト追従・CORS不要）
   const beacon = new Image();
   beacon.onload  = startRedirect;
   beacon.onerror = startRedirect;
   beacon.src = GAS_URL + '?' + params.toString();
-  // 3秒タイムアウト（GASが応答しなくてもリダイレクト）
   setTimeout(startRedirect, 3000);
 }
 
