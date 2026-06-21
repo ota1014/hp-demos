@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>千楽 本店｜SENRAKU YOSHOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1E1E1E;--red:#E94F37;--white:#F4F1EC;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--white);line-height:1.8;}
+a{color:inherit;text-decoration:none;}
+/* split layout */
+.layout{display:grid;grid-template-columns:42% 58%;}
+.fixed-side{position:sticky;top:0;height:100vh;background-size:cover;background-position:center;background-image:linear-gradient(rgba(30,30,30,.3),rgba(30,30,30,.62)),url('img/katsuhayashi.jpg');display:flex;flex-direction:column;justify-content:space-between;padding:2.2rem;}
+.fixed-side .top{font-family:'Montserrat';font-weight:800;font-size:1.3rem;letter-spacing:.05em;}
+.fixed-side .top span{color:var(--red);}
+.fixed-side .mid h1{font-family:'Montserrat';font-weight:800;font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.05;}
+.fixed-side .mid .jp{font-weight:900;font-size:1.4rem;margin-top:.6rem;}
+.fixed-side .mid p{font-size:.85rem;opacity:.9;margin-top:1rem;max-width:22rem;}
+.fixed-side .tel{font-family:'Montserrat';font-weight:800;font-size:1.1rem;}
+.content{padding:0;}
+.block{padding:5rem 3.5rem;border-bottom:1px solid #2e2e2e;}
+.tag{font-family:'Montserrat';color:var(--red);letter-spacing:.25em;font-size:.78rem;font-weight:600;margin-bottom:.6rem;}
+.block h2{font-size:1.7rem;font-weight:900;margin-bottom:1.4rem;}
+.block p{opacity:.85;margin-bottom:1rem;}
+.menu .mrow{display:flex;align-items:center;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid #2e2e2e;}
+.menu .mrow img{width:84px;height:84px;object-fit:cover;border-radius:6px;}
+.menu .mrow .nm{font-weight:700;font-size:1.05rem;flex:1;}
+.menu .mrow .pr{font-family:'Montserrat';font-weight:800;color:var(--red);font-size:1.15rem;}
+.ticker{background:var(--red);overflow:hidden;white-space:nowrap;padding:.6rem 0;font-family:'Montserrat';font-weight:800;}
+.ticker div{display:inline-block;animation:scroll 20s linear infinite;letter-spacing:.08em;}
+.ticker span{margin:0 1.4rem;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.reserve h2{margin-bottom:.6rem;}
+.btns{display:flex;flex-direction:column;gap:.8rem;max-width:24rem;margin-top:1.4rem;}
+.btn{padding:1rem 1.6rem;font-weight:700;border-radius:5px;text-align:center;}
+.btn-tel{background:var(--red);color:#fff;}
+.btn-line{background:#06C755;color:#fff;}
+.btn-ig{border:1px solid var(--white);}
+.info table{width:100%;border-collapse:collapse;margin-bottom:1.6rem;}
+.info th,.info td{text-align:left;padding:.7rem 0;border-bottom:1px solid #2e2e2e;font-size:.9rem;}
+.info th{width:5.5rem;color:var(--red);}
+.info iframe{width:100%;height:260px;border:0;border-radius:8px;}
+footer{padding:2.2rem 3.5rem;font-size:.8rem;opacity:.6;}
+@media(max-width:860px){.layout{grid-template-columns:1fr;}.fixed-side{position:relative;height:80vh;}.block{padding:3.5rem 7%;}.menu .mrow img{width:64px;height:64px;}footer{padding:2rem 7%;}}
+.plan-badge{position:fixed;right:14px;bottom:14px;background:var(--red);color:#fff;font-family:'Montserrat';font-weight:800;font-size:.72rem;padding:.45rem .9rem;border-radius:3px;z-index:60;}
+.reveal{opacity:0;transform:translateX(28px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="fixed-side">
+    <div class="top">千楽 <span>本店</span></div>
+    <div class="mid">
+      <h1>SENRAKU<br>YOSHOKU</h1>
+      <div class="jp">沼津の昭和洋食</div>
+      <p>藤井聡太も選んだ名物カツハヤシ。昭和から続く一皿を、沼津で。</p>
+    </div>
+    <div class="tel">☎ 055-962-1946</div>
+  </aside>
+
+  <main class="content">
+    <div class="ticker"><div>
+      <span>カツハヤシ</span><span>/</span><span>オムライス</span><span>/</span><span>カツ丼</span><span>/</span><span>エビフライ</span><span>/</span><span>昭和創業</span><span>/</span>
+      <span>カツハヤシ</span><span>/</span><span>オムライス</span><span>/</span><span>カツ丼</span><span>/</span><span>エビフライ</span><span>/</span><span>昭和創業</span><span>/</span>
+    </div></div>
+
+    <section class="block reveal" id="about">
+      <div class="tag">OUR STORY</div>
+      <h2>変わらない味を、沼津で。</h2>
+      <p>昭和の昔から下本町で愛され続ける老舗洋食店。デミグラスとカツが重なる名物「カツハヤシ」は、世代を超えて通う地元の記憶の味です。</p>
+      <p style="color:var(--red);font-weight:700;">将棋・藤井聡太棋士が「勝負メシ」に選んだ味としても話題に。</p>
+    </section>
+
+    <section class="block menu reveal" id="menu">
+      <div class="tag">MENU</div>
+      <h2>お品書き</h2>
+      <div class="mrow"><img src="img/katsuhayashi.jpg"><div class="nm">カツハヤシ <span style="font-weight:400;font-size:.8rem;opacity:.6;">（大盛 ¥1,700）</span></div><div class="pr">¥1,500</div></div>
+      <div class="mrow"><img src="img/katsudon.jpg"><div class="nm">カツ丼</div><div class="pr">¥950</div></div>
+      <div class="mrow"><img src="img/omuhayashi.jpg"><div class="nm">オムハヤシ</div><div class="pr">¥1,100</div></div>
+      <div class="mrow"><img src="img/tonkatsu.jpg"><div class="nm">とんかつ</div><div class="pr">¥1,000</div></div>
+    </section>
+
+    <section class="block reserve reveal" id="reserve">
+      <div class="tag">RESERVE</div>
+      <h2>ご予約・お問い合わせ</h2>
+      <p>お昼時は混み合います。お電話でのご予約がおすすめです。</p>
+      <div class="btns">
+        <a href="tel:055-962-1946" class="btn btn-tel">☎ 055-962-1946 に電話</a>
+        <a href="#" class="btn btn-line">LINEで問い合わせ</a>
+        <a href="https://www.instagram.com/senrakukita/" class="btn btn-ig" target="_blank">Instagramを見る</a>
+      </div>
+    </section>
+
+    <section class="block info reveal" id="info">
+      <div class="tag">ACCESS</div>
+      <h2>店舗情報</h2>
+      <table>
+        <tr><th>住所</th><td>静岡県沼津市下本町</td></tr>
+        <tr><th>電話</th><td>055-962-1946</td></tr>
+        <tr><th>営業</th><td>昼 11:00〜14:00／夜 17:00〜20:30 ※参考</td></tr>
+        <tr><th>定休</th><td>火曜</td></tr>
+      </table>
+      <iframe loading="lazy" src="https://www.google.com/maps?q=千楽本店+沼津市下本町&output=embed"></iframe>
+    </section>
+
+    <footer>© SENRAKU 千楽 本店／静岡県沼津市下本町／デザイン提案：BeeBloom HP制作</footer>
+  </main>
+</div>
+
+<div class="plan-badge">PATTERN 4 — SPLIT</div>
+<script>
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

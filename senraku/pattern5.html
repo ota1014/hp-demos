@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>千楽 本店｜お品書き博覧会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1F3A2E;--mustard:#D9A441;--cream:#F3EEE3;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--cream);line-height:1.8;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;width:100%;z-index:50;display:flex;justify-content:center;align-items:center;gap:2rem;padding:1rem 5%;background:rgba(31,58,46,.92);}
+nav .logo{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:.12em;position:absolute;left:5%;}
+nav .logo span{color:var(--mustard);}
+nav .links{display:flex;gap:1.6rem;font-size:.82rem;align-items:center;}
+nav .resv{background:var(--mustard);color:var(--bg);padding:.45rem 1.2rem;border-radius:3px;font-weight:700;}
+@media(max-width:760px){nav .links{display:none;}}
+.hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:7rem 5% 3rem;}
+.hero .tag{font-family:'Bebas Neue';color:var(--mustard);letter-spacing:.3em;font-size:1.1rem;margin-bottom:1rem;}
+.hero h1{font-family:'Bebas Neue';font-size:clamp(3.5rem,11vw,8rem);line-height:.9;letter-spacing:.04em;}
+.hero h1 span{display:block;color:var(--mustard);}
+.hero .jp{font-size:1.1rem;font-weight:700;margin-top:1.2rem;}
+.hero p{margin-top:1rem;max-width:32rem;opacity:.85;}
+/* horizontal scroll gallery */
+.gallery-wrap{padding:4rem 0;}
+.gallery-head{padding:0 5%;margin-bottom:1.6rem;}
+.gallery-head .gh{font-family:'Bebas Neue';color:var(--mustard);letter-spacing:.3em;font-size:1rem;}
+.gallery-head h2{font-size:2rem;font-weight:700;}
+.gallery-head .hint{font-size:.78rem;opacity:.6;margin-top:.4rem;}
+.scroller{display:flex;gap:1.2rem;overflow-x:auto;padding:0 5% 1.5rem;scroll-snap-type:x mandatory;}
+.scroller::-webkit-scrollbar{height:6px;}.scroller::-webkit-scrollbar-thumb{background:var(--mustard);border-radius:3px;}
+.gcard{flex:0 0 300px;scroll-snap-align:start;background:rgba(255,255,255,.05);border-radius:12px;overflow:hidden;}
+.gcard .ph{height:230px;background-size:cover;background-position:center;}
+.gcard .tx{padding:1.2rem 1.3rem;}
+.gcard .nm{font-weight:700;font-size:1.15rem;}
+.gcard .pr{font-family:'Bebas Neue';font-size:1.6rem;color:var(--mustard);letter-spacing:.05em;}
+.gcard .ds{font-size:.8rem;opacity:.7;margin-top:.3rem;}
+.ticker{background:var(--mustard);color:var(--bg);overflow:hidden;white-space:nowrap;padding:.6rem 0;font-family:'Bebas Neue';letter-spacing:.15em;font-size:1.1rem;}
+.ticker div{display:inline-block;animation:scroll 20s linear infinite;}
+.ticker span{margin:0 1.5rem;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.wrap{max-width:1080px;margin:0 auto;padding:0 5%;}
+.sec{padding:5rem 0;}
+.sec-h{font-family:'Bebas Neue';color:var(--mustard);letter-spacing:.3em;font-size:1rem;margin-bottom:.5rem;}
+.sec-t{font-size:2rem;font-weight:700;margin-bottom:1.4rem;}
+.about p{max-width:42rem;opacity:.88;margin-bottom:1rem;}
+.reserve{text-align:center;background:rgba(0,0,0,.2);}
+.btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem;}
+.btn{padding:1rem 2rem;font-weight:700;border-radius:5px;}
+.btn-tel{background:var(--mustard);color:var(--bg);}
+.btn-line{background:#06C755;color:#fff;}
+.btn-ig{border:1px solid var(--cream);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.info-grid table{width:100%;border-collapse:collapse;}
+.info-grid th,.info-grid td{text-align:left;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.9rem;}
+.info-grid th{width:6rem;color:var(--mustard);}
+.info-grid iframe{width:100%;height:300px;border:0;border-radius:10px;}
+@media(max-width:760px){.info-grid{grid-template-columns:1fr;}}
+footer{text-align:center;padding:2.5rem 5%;font-size:.82rem;border-top:1px solid rgba(255,255,255,.1);}
+footer .fl{font-family:'Bebas Neue';font-size:1.6rem;letter-spacing:.1em;margin-bottom:.4rem;}footer .fl span{color:var(--mustard);}
+.plan-badge{position:fixed;right:14px;bottom:14px;background:var(--mustard);color:var(--bg);font-family:'Bebas Neue';letter-spacing:.1em;font-size:.82rem;padding:.4rem .9rem;border-radius:3px;z-index:60;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#top" class="logo">千楽<span>.</span></a>
+  <div class="links"><a href="#about">こだわり</a><a href="#menu">お品書き</a><a href="#info">アクセス</a><a href="#reserve" class="resv">ご予約</a></div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="tag">SENRAKU — NUMAZU SINCE SHOWA</div>
+  <h1>YOSHOKU<span>HAKURANKAI</span></h1>
+  <div class="jp">沼津・千楽 本店のお品書き博覧会</div>
+  <p>どれにしようか迷うのも、ごちそう。昭和から続く洋食の名物たちを、ずらりと。</p>
+</section>
+
+<div class="ticker"><div>
+  <span>カツハヤシ ¥1,500</span><span>◆</span><span>カツカレー ¥1,400</span><span>◆</span><span>カツ丼 ¥950</span><span>◆</span><span>オムライス ¥900</span><span>◆</span>
+  <span>カツハヤシ ¥1,500</span><span>◆</span><span>カツカレー ¥1,400</span><span>◆</span><span>カツ丼 ¥950</span><span>◆</span><span>オムライス ¥900</span><span>◆</span>
+</div></div>
+
+<div class="gallery-wrap" id="menu">
+  <div class="gallery-head">
+    <div class="gh">SIGNATURE MENU</div>
+    <h2>名物、勢ぞろい。</h2>
+    <div class="hint">← 横にスクロールしてご覧ください →</div>
+  </div>
+  <div class="scroller">
+    <div class="gcard"><div class="ph" style="background-image:url('img/katsuhayashi.jpg');"></div><div class="tx"><div class="nm">カツハヤシ</div><div class="pr">¥1,500</div><div class="ds">名物。藤井聡太の勝負メシ。</div></div></div>
+    <div class="gcard"><div class="ph" style="background-image:url('img/katsudon.jpg');"></div><div class="tx"><div class="nm">カツ丼</div><div class="pr">¥950</div><div class="ds">玉子でとじた定番。</div></div></div>
+    <div class="gcard"><div class="ph" style="background-image:url('img/omuhayashi.jpg');"></div><div class="tx"><div class="nm">オムハヤシ</div><div class="pr">¥1,100</div><div class="ds">オムレツにデミグラス。</div></div></div>
+    <div class="gcard"><div class="ph" style="background-image:url('img/tonkatsu.jpg');"></div><div class="tx"><div class="nm">とんかつ</div><div class="pr">¥1,000</div><div class="ds">サクッと厚切り。</div></div></div>
+    <div class="gcard"><div class="ph" style="background-image:url('img/interior.jpg');"></div><div class="tx"><div class="nm">昭和の佇まい</div><div class="pr" style="font-size:1rem;">店内</div><div class="ds">昔ながらの落ち着く空間。</div></div></div>
+  </div>
+</div>
+
+<section class="sec wrap about" id="about">
+  <div class="sec-h">OUR STORY</div>
+  <h2 class="sec-t">沼津の洋食、ここにあり。</h2>
+  <p class="reveal">昭和の昔から下本町で愛され続ける老舗洋食店。名物「カツハヤシ」をはじめ、オムライスやカツ丼など、世代を超えて通うファンの記憶の味が並びます。</p>
+  <p class="reveal" style="color:var(--mustard);font-weight:700;">将棋・藤井聡太棋士が「勝負メシ」に選んだ味としても話題に。</p>
+</section>
+
+<section class="sec wrap reserve" id="reserve">
+  <div class="sec-h" style="text-align:center;">RESERVE</div>
+  <h2 class="sec-t">ご予約・お問い合わせ</h2>
+  <p style="opacity:.85;">お昼時は混み合います。お電話でのご予約がおすすめです。</p>
+  <div class="btns">
+    <a href="tel:055-962-1946" class="btn btn-tel">☎ 055-962-1946</a>
+    <a href="#" class="btn btn-line">LINEで問い合わせ</a>
+    <a href="https://www.instagram.com/senrakukita/" class="btn btn-ig" target="_blank">Instagram</a>
+  </div>
+</section>
+
+<section class="sec wrap" id="info">
+  <div class="sec-h">ACCESS</div>
+  <h2 class="sec-t">店舗情報</h2>
+  <div class="info-grid">
+    <table>
+      <tr><th>店名</th><td>千楽 本店</td></tr>
+      <tr><th>住所</th><td>静岡県沼津市下本町</td></tr>
+      <tr><th>電話</th><td>055-962-1946</td></tr>
+      <tr><th>営業</th><td>昼 11:00〜14:00／夜 17:00〜20:30 ※参考</td></tr>
+      <tr><th>定休</th><td>火曜</td></tr>
+    </table>
+    <iframe loading="lazy" src="https://www.google.com/maps?q=千楽本店+沼津市下本町&output=embed"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">千楽 <span>本店</span></div>
+  <p>静岡県沼津市下本町／☎ 055-962-1946／定休日 火曜</p>
+  <p style="opacity:.5;margin-top:1rem;font-size:.72rem;">© SENRAKU. デザイン提案：BeeBloom HP制作</p>
+</footer>
+
+<div class="plan-badge">PATTERN 5 — SHOWCASE</div>
+<script>
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
