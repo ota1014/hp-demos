@@ -3,10 +3,10 @@
 <head><meta name="robots" content="noindex,nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YORIMICHI 出張ポーカー｜経営者のための、招待制プライベートポーカー</title>
-<meta name="description" content="経営者のための出張ポーカー。プロディーラーが本格テーブルを携え、あなたと“身内”だけの卓を会場へ。経営者仲間と、社の精鋭と。未経験歓迎・賭けなし・完全予約制。">
-<meta property="og:title" content="YORIMICHI 出張ポーカー｜経営者のためのプライベートポーカー">
-<meta property="og:description" content="降りる勇気が、経営を強くする。あなたと“身内”だけの卓を、会場へ。">
+<title>YORIMICHI 出張ポーカー｜上質な大人のための、招待制プライベートポーカー</title>
+<meta name="description" content="上質な時間を知る大人のための出張ポーカー。プロディーラーが本格テーブルを携え、あなたと“気の置けない仲間”だけの卓を会場へ。未経験歓迎・賭けなし・完全予約制。">
+<meta property="og:title" content="YORIMICHI 出張ポーカー｜上質な大人のためのプライベートポーカー">
+<meta property="og:description" content="知性で勝つ、大人の嗜み。あなたと“気の置けない仲間”だけの卓を、会場へ。">
 <meta property="og:image" content="assets/photos/hero.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +61,19 @@ nav.scrolled{background:rgba(8,8,8,.97);border-color:var(--line);}
 .sec-bar{width:36px;height:2px;background:var(--gold);margin:0 auto 3rem;opacity:.75;}
 .sec-lead{text-align:center;font-size:.92rem;color:rgba(255,255,255,.58);line-height:2;max-width:640px;margin:0 auto 3.2rem;}
 
-/* POKER ≒ 経営 */
+/* QUOTES */
+.quotes{padding:5rem 5% 5.5rem;background:linear-gradient(180deg,#080808,var(--mid));border-bottom:1px solid var(--line);}
+.quotes-inner{max-width:1080px;margin:0 auto;}
+.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.quote-card{position:relative;padding:3rem 1.8rem 2rem;background:var(--card);border:1px solid var(--line);border-radius:6px;transition:border-color .3s,transform .3s;}
+.quote-card:hover{border-color:var(--line-strong);transform:translateY(-4px);}
+.quote-card::before{content:'\201C';position:absolute;top:.4rem;left:1.3rem;font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:var(--gold);opacity:.45;line-height:1;}
+.quote-text{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1rem;line-height:2.05;color:rgba(255,255,255,.92);margin-bottom:1.5rem;position:relative;z-index:1;}
+.quote-author{font-family:'Noto Serif JP',serif;font-weight:700;font-size:.86rem;color:var(--gold-light);letter-spacing:.04em;display:block;}
+.quote-role{display:block;font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.3rem;letter-spacing:.08em;}
+@media(max-width:820px){.quotes-grid{grid-template-columns:1fr;}.quote-card{padding:2.6rem 1.6rem 1.8rem;}}
+
+/* POKER = 知性のゲーム */
 .poker{padding:5.5rem 5%;background:var(--dark);}
 .poker-inner{max-width:1000px;margin:0 auto;}
 .map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
@@ -210,10 +222,10 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
 <nav id="nav">
   <a href="#top" class="nav-logo"><img src="assets/logo_white.png" alt="YORIMICHI"><small>PRIVATE POKER</small></a>
   <ul class="nav-links">
-    <li><a href="#poker">経営とポーカー</a></li>
-    <li><a href="#private">出張・身内で</a></li>
+    <li><a href="#poker">大人の嗜み</a></li>
+    <li><a href="#private">貸切・出張</a></li>
     <li><a href="#exp">体験</a></li>
-    <li><a href="#expand">会社へ</a></li>
+    <li><a href="#expand">愉しみ方</a></li>
     <li><a href="#plans">料金</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -225,10 +237,10 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
 
 <div id="mobileNav" class="nav-mobile">
   <button onclick="document.getElementById('mobileNav').classList.remove('open')" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">✕</button>
-  <a href="#poker" onclick="document.getElementById('mobileNav').classList.remove('open')">経営とポーカー</a>
-  <a href="#private" onclick="document.getElementById('mobileNav').classList.remove('open')">出張・身内で</a>
+  <a href="#poker" onclick="document.getElementById('mobileNav').classList.remove('open')">大人の嗜み</a>
+  <a href="#private" onclick="document.getElementById('mobileNav').classList.remove('open')">貸切・出張</a>
   <a href="#exp" onclick="document.getElementById('mobileNav').classList.remove('open')">体験</a>
-  <a href="#expand" onclick="document.getElementById('mobileNav').classList.remove('open')">会社へ</a>
+  <a href="#expand" onclick="document.getElementById('mobileNav').classList.remove('open')">愉しみ方</a>
   <a href="#plans" onclick="document.getElementById('mobileNav').classList.remove('open')">料金</a>
   <a href="#reserve" onclick="document.getElementById('mobileNav').classList.remove('open')">相談する</a>
 </div>
@@ -238,34 +250,60 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-body">
-    <div class="hero-tag">NUMAZU · SHIZUOKA / 経営者のための出張ポーカー</div>
-    <h1 class="hero-title">降りる勇気が、<br><em>経営を強くする。</em></h1>
+    <div class="hero-tag">NUMAZU · SHIZUOKA / 上質な大人のための出張ポーカー</div>
+    <h1 class="hero-title">運ではなく、<br><em>知性で勝つ。</em></h1>
     <p class="hero-sub">YORIMICHI Private Poker</p>
-    <p class="hero-copy">運ではなく、合理的な判断が勝つゲーム。<br>プロのディーラーが本格テーブルを携え、<br>あなたと“身内”だけの卓を会場へお届けします。<br>経営者仲間と。あるいは、社の精鋭と。</p>
+    <p class="hero-copy">世界の一流が嗜む、知的なテーブルゲーム。<br>プロのディーラーが本格テーブルを携え、<br>あなたと“気の置けない仲間”だけの卓を会場へ。<br>非日常の数時間を、選ばれた顔ぶれで。</p>
     <div class="hero-btns">
       <a href="#reserve" class="btn-primary">完全予約制で相談する</a>
-      <a href="#poker" class="btn-secondary">なぜ経営者が惹かれるのか</a>
+      <a href="#poker" class="btn-secondary">なぜ一流が惹かれるのか</a>
     </div>
   </div>
   <div class="hero-scroll">SCROLL</div>
 </section>
 
-<!-- POKER ≒ 経営 -->
+<!-- QUOTES -->
+<section class="quotes" id="quotes">
+  <div class="quotes-inner">
+    <div class="sec-label reveal">VOICES</div>
+    <h2 class="sec-title reveal delay-1">賢者たちは、<br>なぜ卓に着くのか。</h2>
+    <div class="sec-bar reveal delay-2"></div>
+    <div class="quotes-grid">
+      <div class="quote-card reveal">
+        <p class="quote-text">ポーカーを始めて30分。テーブルのカモが誰か分からないなら——そのカモは、あなたです。</p>
+        <span class="quote-author">ウォーレン・バフェット</span>
+        <span class="quote-role">投資家・バークシャー会長</span>
+      </div>
+      <div class="quote-card reveal delay-1">
+        <p class="quote-text">人生とは、良い手札が配られることではない。配られた手札で、いかにうまく勝負するかだ。</p>
+        <span class="quote-author">ロバート・L・スティーヴンソン</span>
+        <span class="quote-role">作家『宝島』</span>
+      </div>
+      <div class="quote-card reveal delay-2">
+        <p class="quote-text">現実の人生とは、ブラフであり、小さな駆け引きであり、“相手は自分が何をすると思っているか”を読むことだ。私のゲーム理論は、まさにそれを扱う。</p>
+        <span class="quote-author">ジョン・フォン・ノイマン</span>
+        <span class="quote-role">数学者・“ゲーム理論”の父</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POKER = 知性のゲーム -->
 <section class="poker" id="poker">
   <div class="poker-inner">
-    <div class="sec-label reveal">WHY EXECUTIVES</div>
-    <h2 class="sec-title reveal delay-1">ポーカーは、最も“経営に近い”ゲーム。</h2>
+    <div class="sec-label reveal">WHY THE FEW</div>
+    <h2 class="sec-title reveal delay-1">ポーカーは、世界の一流が<br>愛する“知性のゲーム”。</h2>
     <div class="sec-bar reveal delay-2"></div>
-    <p class="sec-lead reveal">限られた情報の中で、リスクを測り、決断する。世界の経営者・投資家がポーカーを嗜むのは、それが運否天賦の賭けではなく、<strong style="color:var(--gold-light)">長期的には合理的判断が勝つゲーム</strong>だからです。卓の上の一手は、驚くほど経営判断に似ています。</p>
+    <p class="sec-lead reveal">限られた情報の中で、確率を読み、心理を読み、最善を選び続ける。世界の起業家・投資家・俳優・トップアスリートまでもがポーカーを嗜むのは、それが運否天賦の賭けではなく、<strong style="color:var(--gold-light)">長期的には知性と胆力が勝つゲーム</strong>だから。一手ごとに、その人の品格と判断力が滲み出ます。</p>
     <div class="map-grid">
-      <div class="map-card reveal"><div class="map-poker">フォールド（降りる）</div><div class="map-eq">≒ 経営では</div><div class="map-biz">引き際の見極め。損切り・撤退の意思決定。勝てない局面で粘らない胆力。</div></div>
-      <div class="map-card reveal delay-1"><div class="map-poker">期待値（EV）で打つ</div><div class="map-eq">≒ 経営では</div><div class="map-biz">確率と見返りで賭ける。ROI・投資判断そのもの。感情ではなく数字で動く。</div></div>
-      <div class="map-card reveal"><div class="map-poker">ブラフ・相手を読む</div><div class="map-eq">≒ 経営では</div><div class="map-biz">交渉と心理戦。相手の出方を読み、こちらの情報をどう見せるかを設計する。</div></div>
-      <div class="map-card reveal delay-1"><div class="map-poker">バンクロール管理</div><div class="map-eq">≒ 経営では</div><div class="map-biz">資金繰り・リスク管理。一度の負けで退場しないための、持ち金の配分。</div></div>
-      <div class="map-card reveal"><div class="map-poker">ポジションとタイミング</div><div class="map-eq">≒ 経営では</div><div class="map-biz">いつ仕掛け、いつ待つか。有利な位置取りで判断する参入・撤退の戦略。</div></div>
-      <div class="map-card reveal delay-1"><div class="map-poker">不完全情報での決断</div><div class="map-eq">≒ 経営では</div><div class="map-biz">全データが揃うことはない。限られた手札で最善を選び続ける、経営の本質。</div></div>
+      <div class="map-card reveal"><div class="map-poker">引き際を、見極める</div><div class="map-eq">FOLD</div><div class="map-biz">勝てない局面で深追いしない胆力。降りる勇気こそ、洗練された大人の余裕。</div></div>
+      <div class="map-card reveal delay-1"><div class="map-poker">確率で、選ぶ</div><div class="map-eq">EXPECTED VALUE</div><div class="map-biz">感情ではなく数字で動く。リスクと見返りを天秤にかける、知的な駆け引き。</div></div>
+      <div class="map-card reveal"><div class="map-poker">相手を、読む</div><div class="map-eq">READ</div><div class="map-biz">表情・仕草・間。テーブルの上で交わされる、言葉のいらない心理戦。</div></div>
+      <div class="map-card reveal delay-1"><div class="map-poker">流れを、御す</div><div class="map-eq">BANKROLL</div><div class="map-biz">一度の負けで崩れない配分の妙。冷静に持ち時間と勝負所をコントロールする。</div></div>
+      <div class="map-card reveal"><div class="map-poker">機を、つかむ</div><div class="map-eq">POSITION</div><div class="map-biz">いつ仕掛け、いつ待つか。有利な位置取りを見抜く、洗練された勝負勘。</div></div>
+      <div class="map-card reveal delay-1"><div class="map-poker">不確実を、愉しむ</div><div class="map-eq">THE EDGE</div><div class="map-biz">すべてが見えない中で最善を選ぶ。その緊張と高揚こそ、大人の贅沢な遊び。</div></div>
     </div>
-    <p class="poker-foot reveal"><strong>未経験こそ、面白い。</strong><br>ルールを知らなくても問題ありません。プロディーラーがリードし、無料レッスンもご用意。経営者ほど“ハマる”理由は、卓に着けばすぐに分かります。</p>
+    <p class="poker-foot reveal"><strong>未経験こそ、面白い。</strong><br>ルールを知らなくても問題ありません。プロディーラーがリードし、無料レッスンもご用意。知性を愉しむ方ほど“ハマる”理由は、卓に着けばすぐに分かります。</p>
   </div>
 </section>
 
@@ -275,27 +313,27 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
     <div class="sec-label reveal">PRIVATE & CLOSED</div>
     <h2 class="sec-title reveal delay-1">店ではなく、<br>“身内だけ”の卓を囲む。</h2>
     <div class="sec-bar reveal delay-2"></div>
-    <p class="sec-lead reveal">経営者の社交は、人目につかない場でこそ深まる。だからこの卓は、店に出向くのではなく、<strong style="color:var(--gold-light)">あなたのテリトリーに本格の卓を持ち込む</strong>出張専門。同席するメンバーは、あなたが選びます。</p>
+    <p class="sec-lead reveal">本物の社交は、人目につかない場でこそ深まる。だからこの卓は、店に出向くのではなく、<strong style="color:var(--gold-light)">あなたのテリトリーに本格の卓を持ち込む</strong>出張専門。同席するメンバーは、あなたが選びます。</p>
     <div class="pv-row reveal">
       <div class="pv"><div class="pv-icon">🚪</div><div class="pv-name">混ざらない</div><div class="pv-text">知らない客はいない。完全に閉じた、貸切の卓だけ。</div></div>
       <div class="pv"><div class="pv-icon">🎯</div><div class="pv-name">選べる</div><div class="pv-text">同席するのは、あなたが招いた人だけ。最大8名の特別な顔ぶれ。</div></div>
-      <div class="pv"><div class="pv-icon">🤫</div><div class="pv-name">守られる</div><div class="pv-text">移動も人目もなし。腹を割った話も、機密も、卓の上に留まる。</div></div>
+      <div class="pv"><div class="pv-icon">🤫</div><div class="pv-name">守られる</div><div class="pv-text">移動も人目もなし。腹を割った話も、ここだけの話も、卓の上に留まる。</div></div>
     </div>
     <div class="scene-grid">
       <div class="scene-card reveal">
-        <img src="assets/photos/g1.jpg" alt="経営者仲間と囲む卓" loading="lazy">
+        <img src="assets/photos/g1.jpg" alt="気の置けない仲間と囲む卓" loading="lazy">
         <div class="scene-body">
           <div class="scene-no">TABLE 01</div>
-          <div class="scene-name">経営者仲間と、囲む</div>
-          <div class="scene-desc">気の合う経営者と、勝負を通じて本音を交わす夜。ゴルフの半日より濃い時間が、わずか数時間で。人脈が深まる、私的な社交場に。</div>
+          <div class="scene-name">気の置けない仲間と、囲む</div>
+          <div class="scene-desc">気心の知れた友と、勝負を通じて本音を交わす夜。ゴルフの半日より濃い時間が、わずか数時間で。会話も笑いも弾む、極上の社交の場に。</div>
         </div>
       </div>
       <div class="scene-card reveal delay-1">
-        <img src="assets/photos/g5.jpg" alt="社の精鋭と囲む卓" loading="lazy">
+        <img src="assets/photos/g5.jpg" alt="大切な人をもてなす卓" loading="lazy">
         <div class="scene-body">
           <div class="scene-no">TABLE 02</div>
-          <div class="scene-name">社の精鋭と、囲む</div>
-          <div class="scene-desc">役員・幹部・チームと一卓を囲めば、肩書きを外した素の判断力が見える。結束を固め、次の意思決定を鍛える、もう一つの会議室。</div>
+          <div class="scene-name">大切な人を、もてなす</div>
+          <div class="scene-desc">別荘やラウンジに本格の卓を一台。記念日や、大切なゲストを招く特別な夜に。ありきたりな食事会では出せない、忘れられない非日常を演出します。</div>
         </div>
       </div>
     </div>
@@ -354,15 +392,15 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
 <!-- EXPAND -->
 <section class="expand" id="expand">
   <div class="expand-inner">
-    <div class="sec-label reveal">FROM YOU, TO YOUR COMPANY</div>
-    <h2 class="sec-title reveal delay-1">個人の夜から、会社の場へ。</h2>
+    <div class="sec-label reveal">SCENES</div>
+    <h2 class="sec-title reveal delay-1">あなたの特別な夜に、<br>本格の卓を。</h2>
     <div class="sec-bar reveal delay-2"></div>
-    <p class="sec-lead reveal">一度ハマったその卓は、そのまま“会社の武器”になります。あなたが体験した価値を、自社の人と場へ。用途に合わせて、複数テーブルでの貸切も承ります。</p>
+    <p class="sec-lead reveal">ホームパーティーから記念日、大切なゲストのおもてなしまで。あなたの“特別な時間”に、プロの卓がそっと寄り添います。用途に合わせて、複数テーブルでの貸切も承ります。</p>
     <div class="expand-grid">
-      <div class="ex-card reveal"><div class="ex-no">01</div><div><div class="ex-name">役員・幹部の意思決定トレーニング</div><div class="ex-text">不完全情報での判断・損切り・心理戦を、遊びながら鍛える。座学にはない実戦的な研修として。</div></div></div>
-      <div class="ex-card reveal delay-1"><div class="ex-no">02</div><div><div class="ex-name">周年・社内表彰・節目のイベント</div><div class="ex-text">記念の夜を、ありきたりな宴会で終わらせない。チャンピオンを決める、記憶に残る演出に。</div></div></div>
-      <div class="ex-card reveal"><div class="ex-no">03</div><div><div class="ex-name">VIP顧客の、特別な接待</div><div class="ex-text">接待はゴルフだけじゃない。夜の数時間で、密度の高い関係構築を。大切な顧客をもてなす一卓。</div></div></div>
-      <div class="ex-card reveal delay-1"><div class="ex-no">04</div><div><div class="ex-name">福利厚生・チームの結束づくり</div><div class="ex-text">肩書きを外して一卓を囲めば、部署を越えた距離が縮まる。社員へのご褒美にも。</div></div></div>
+      <div class="ex-card reveal"><div class="ex-no">01</div><div><div class="ex-name">ホームパーティー・別荘での集い</div><div class="ex-text">気の置けない仲間との夜に、ひと味違う非日常を。ご自宅や別荘に本格の卓を持ち込み、忘れられない時間を演出します。</div></div></div>
+      <div class="ex-card reveal delay-1"><div class="ex-no">02</div><div><div class="ex-name">誕生日・記念日の特別な演出</div><div class="ex-text">大切な節目を、ありきたりな食事会で終わらせない。チャンピオンを決める、記憶に残るサプライズの夜に。</div></div></div>
+      <div class="ex-card reveal"><div class="ex-no">03</div><div><div class="ex-name">大切なゲストの、おもてなし</div><div class="ex-text">接待や歓待はゴルフや会食だけじゃない。夜の数時間で、密度の高い時間を共有する。大切な人をもてなす一卓。</div></div></div>
+      <div class="ex-card reveal delay-1"><div class="ex-no">04</div><div><div class="ex-name">仲間内の、社交サロンとして</div><div class="ex-text">趣味の合う仲間が定期的に集う、私的なサロンに。回を重ねるほど腕が上がり、語らいも深まっていきます。</div></div></div>
     </div>
   </div>
 </section>
@@ -378,7 +416,7 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
         <div class="flow-num">1</div>
         <div class="flow-content">
           <h3>LINE・Instagramでご相談</h3>
-          <p>日時・場所・人数・ご要望をご連絡ください。完全予約制・お見積りは無料です。経営者仲間との会か、社内の会かもお聞かせください。</p>
+          <p>日時・場所・人数・ご要望をご連絡ください。完全予約制・お見積りは無料です。仲間内の会か、おもてなしの席かもお聞かせください。</p>
         </div>
       </div>
       <div class="flow-step reveal">
@@ -446,7 +484,7 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
         <ul class="plan-items">
           <li>プロディーラー2名がフル進行</li>
           <li>本格トーナメントもゆったり開催</li>
-          <li>長い夜の社交・接待に最適</li>
+          <li>長い夜の社交・おもてなしに最適</li>
           <li>設営・撤収すべて込み</li>
         </ul>
       </div>
@@ -454,7 +492,7 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
     <div class="private-plan reveal">
       <div>
         <div class="pp-name">PRIVATE / 貸切・複数テーブル</div>
-        <div class="pp-desc">役員研修・周年・社内表彰・VIP接待など、大人数や複数テーブルでの開催に。専属チームを編成し、内容に合わせて一から設計します。</div>
+        <div class="pp-desc">記念パーティー・周年の集い・大人数のおもてなしなど、複数テーブルでの開催に。専属チームを編成し、内容に合わせて一から設計します。</div>
       </div>
       <div class="pp-price">応相談<small>まずはご相談ください</small></div>
     </div>
@@ -474,23 +512,23 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
     <div class="sec-bar reveal delay-2"></div>
     <div class="faq-item reveal">
       <button class="faq-q">ポーカーを全く知らなくても大丈夫ですか？</button>
-      <div class="faq-a"><p>はい、まったく問題ありません。参加者の多くが未経験からのスタートです。プロディーラーがルールを丁寧に説明し、ゲームをリードします。ご希望があれば未経験者レッスンを無料でお付けします。経営者ほど短時間で夢中になる方が多いゲームです。</p></div>
+      <div class="faq-a"><p>はい、まったく問題ありません。参加者の多くが未経験からのスタートです。プロディーラーがルールを丁寧に説明し、ゲームをリードします。ご希望があれば未経験者レッスンを無料でお付けします。知性を愉しむ方ほど、短時間で夢中になるゲームです。</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-q">お金を賭けるのですか？立場上、問題はありませんか？</button>
-      <div class="faq-a"><p>金銭を賭けることは一切ありません。チップを使ったアミューズメント（娯楽）としてのポーカーです。お金のやり取りが発生しないため、経営者の方や法人のご利用でも安心してお楽しみいただけます。</p></div>
+      <div class="faq-a"><p>金銭を賭けることは一切ありません。チップを使ったアミューズメント（娯楽）としてのポーカーです。お金のやり取りが発生しないため、立場のある方でも安心してお楽しみいただけます。</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-q">どんな場所に来てもらえますか？</button>
       <div class="faq-a"><p>会員制ラウンジ・ご自宅・別荘・レンタルスペース・オフィス・会議室・式場など幅広く対応します。テーブルを設置できるスペース（おおよそ2m×1m＋椅子分）があれば設営可能です。会場に不安があればご相談ください。</p></div>
     </div>
     <div class="faq-item reveal">
-      <button class="faq-q">経営者仲間や社員など、こちらでメンバーを集める形でいいですか？</button>
-      <div class="faq-a"><p>はい、その形が基本です。同席するのはあなたが招いた“身内”だけ。知らない方と相席になることはありません。経営者仲間の私的な会でも、役員・社員との社内の会でも、ご自由にメンバーを構成いただけます。</p></div>
+      <button class="faq-q">友人や仲間など、こちらでメンバーを集める形でいいですか？</button>
+      <div class="faq-a"><p>はい、その形が基本です。同席するのはあなたが招いた方だけ。知らない方と相席になることはありません。気の置けない友人との私的な会でも、大切なゲストを招くおもてなしの席でも、ご自由にメンバーを構成いただけます。</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-q">何人まで参加できますか？大人数や複数卓も可能ですか？</button>
-      <div class="faq-a"><p>テーブル1台で最大8名までご参加いただけます。9名以上・複数テーブルでの開催（周年・研修・接待など）は「PRIVATE／貸切」として応相談で承ります。お気軽にご相談ください。</p></div>
+      <div class="faq-a"><p>テーブル1台で最大8名までご参加いただけます。9名以上・複数テーブルでの開催（パーティー・記念の集い・おもてなしなど）は「PRIVATE／貸切」として応相談で承ります。お気軽にご相談ください。</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-q">対応エリアと出張費を教えてください。</button>
@@ -509,7 +547,7 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
     <div class="sec-label reveal">CONTACT</div>
     <h2 class="reserve-title reveal delay-1">まずは、卓のご相談から。</h2>
     <div class="reserve-bar reveal delay-2"></div>
-    <p class="reserve-lead reveal delay-3">「経営者仲間と囲みたい」「役員の研修に使えるか」など、ざっくりしたご相談でOKです。完全予約制・お見積りは無料。<br>LINEまたはInstagramのDMから、お気軽にメッセージください。</p>
+    <p class="reserve-lead reveal delay-3">「仲間と囲みたい」「記念日のサプライズに使えるか」など、ざっくりしたご相談でOKです。完全予約制・お見積りは無料。<br>LINEまたはInstagramのDMから、お気軽にメッセージください。</p>
     <a href="https://line.me/R/ti/p/@495gnfee" target="_blank" rel="noopener" class="line-btn reveal delay-3">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.04 2 11.05c0 3.51 2.2 6.58 5.51 8.3L6.5 22l3.04-1.61C10.3 20.79 11.15 21 12 21c5.52 0 10-4.04 10-9.05C22 6.04 17.52 2 12 2z"/></svg>
       LINEで無料相談する
