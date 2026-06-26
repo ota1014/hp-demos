@@ -117,18 +117,8 @@ nav.scrolled{background:rgba(8,8,8,.97);border-color:var(--line);}
 .gallery-grid .tall{grid-row:span 2;}
 @media(max-width:780px){.gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;}.gallery-grid .wide{grid-column:span 2;}.gallery-grid .tall{grid-row:span 1;}}
 
-/* EXPAND */
-.expand{padding:5.5rem 5%;background:var(--dark);}
-.expand-inner{max-width:1000px;margin:0 auto;}
-.expand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:1rem;}
-.ex-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;}
-.ex-no{font-family:'Bebas Neue';font-size:1.6rem;color:var(--gold);line-height:1;flex-shrink:0;}
-.ex-name{font-family:'Noto Serif JP',serif;font-weight:700;font-size:1.02rem;margin-bottom:.4rem;}
-.ex-text{font-size:.82rem;color:rgba(255,255,255,.56);line-height:1.85;}
-@media(max-width:680px){.expand-grid{grid-template-columns:1fr;}}
-
 /* FLOW */
-.flow{padding:5.5rem 5%;background:var(--mid);}
+.flow{padding:5.5rem 5%;background:var(--dark);}
 .flow-inner{max-width:880px;margin:0 auto;}
 .flow-step{display:flex;gap:1.6rem;padding:1.6rem 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;}
 .flow-step:last-child{border-bottom:none;}
@@ -214,7 +204,6 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
     <li><a href="#poker">大人の嗜み</a></li>
     <li><a href="#private">貸切・出張</a></li>
     <li><a href="#exp">体験</a></li>
-    <li><a href="#expand">愉しみ方</a></li>
     <li><a href="#plans">料金</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -229,7 +218,6 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
   <a href="#poker" onclick="document.getElementById('mobileNav').classList.remove('open')">大人の嗜み</a>
   <a href="#private" onclick="document.getElementById('mobileNav').classList.remove('open')">貸切・出張</a>
   <a href="#exp" onclick="document.getElementById('mobileNav').classList.remove('open')">体験</a>
-  <a href="#expand" onclick="document.getElementById('mobileNav').classList.remove('open')">愉しみ方</a>
   <a href="#plans" onclick="document.getElementById('mobileNav').classList.remove('open')">料金</a>
   <a href="#reserve" onclick="document.getElementById('mobileNav').classList.remove('open')">相談する</a>
 </div>
@@ -288,7 +276,7 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
         <div class="scene-body">
           <div class="scene-no">TABLE 01</div>
           <div class="scene-name">気の置けない仲間と、囲む</div>
-          <div class="scene-desc">気心の知れた友と、勝負を通じて本音を交わす夜。ゴルフの半日より濃い時間が、わずか数時間で。会話も笑いも弾む、極上の社交の場に。</div>
+          <div class="scene-desc">気心の知れた友と、勝負を通じて本音を交わす夜。ホームパーティーや別荘での集い、趣味の合う仲間が定期的に集う“社交サロン”としても。ゴルフの半日より濃い時間が、わずか数時間で。</div>
         </div>
       </div>
       <div class="scene-card reveal delay-1">
@@ -296,7 +284,7 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
         <div class="scene-body">
           <div class="scene-no">TABLE 02</div>
           <div class="scene-name">大切な人を、もてなす</div>
-          <div class="scene-desc">別荘やラウンジに本格の卓を一台。記念日や、大切なゲストを招く特別な夜に。ありきたりな食事会では出せない、忘れられない非日常を演出します。</div>
+          <div class="scene-desc">誕生日や記念日のサプライズに、大切なゲストの歓待に。別荘やラウンジに本格の卓を一台持ち込み、チャンピオンを決める演出で記憶に残る夜を。ありきたりな食事会では出せない、忘れられない非日常を。</div>
         </div>
       </div>
     </div>
@@ -348,22 +336,6 @@ footer{background:#050505;padding:3rem 5%;text-align:center;border-top:1px solid
       <div class="g"><img src="assets/photos/g7.jpg" alt="窓際のポーカーテーブル" loading="lazy"></div>
       <div class="g"><img src="assets/photos/g8.jpg" alt="ポーカーテーブル" loading="lazy"></div>
       <div class="g"><img src="assets/photos/g3.jpg" alt="チップの乗ったテーブル" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPAND -->
-<section class="expand" id="expand">
-  <div class="expand-inner">
-    <div class="sec-label reveal">SCENES</div>
-    <h2 class="sec-title reveal delay-1">あなたの特別な夜に、<br>本格の卓を。</h2>
-    <div class="sec-bar reveal delay-2"></div>
-    <p class="sec-lead reveal">ホームパーティーから記念日、大切なゲストのおもてなしまで。あなたの“特別な時間”に、プロの卓がそっと寄り添います。用途に合わせて、複数テーブルでの貸切も承ります。</p>
-    <div class="expand-grid">
-      <div class="ex-card reveal"><div class="ex-no">01</div><div><div class="ex-name">ホームパーティー・別荘での集い</div><div class="ex-text">気の置けない仲間との夜に、ひと味違う非日常を。ご自宅や別荘に本格の卓を持ち込み、忘れられない時間を演出します。</div></div></div>
-      <div class="ex-card reveal delay-1"><div class="ex-no">02</div><div><div class="ex-name">誕生日・記念日の特別な演出</div><div class="ex-text">大切な節目を、ありきたりな食事会で終わらせない。チャンピオンを決める、記憶に残るサプライズの夜に。</div></div></div>
-      <div class="ex-card reveal"><div class="ex-no">03</div><div><div class="ex-name">大切なゲストの、おもてなし</div><div class="ex-text">接待や歓待はゴルフや会食だけじゃない。夜の数時間で、密度の高い時間を共有する。大切な人をもてなす一卓。</div></div></div>
-      <div class="ex-card reveal delay-1"><div class="ex-no">04</div><div><div class="ex-name">仲間内の、社交サロンとして</div><div class="ex-text">趣味の合う仲間が定期的に集う、私的なサロンに。回を重ねるほど腕が上がり、語らいも深まっていきます。</div></div></div>
     </div>
   </div>
 </section>
